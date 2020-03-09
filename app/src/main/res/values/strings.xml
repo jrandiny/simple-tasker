@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Simply Automatic</string>
+    <string name="title_activity_main">Simply Automatic</string>
+    <string name="active_tab_title">Active</string>
+    <string name="inactive_tab_title">Inactive</string>
+    <string name="fab_tooltip">Add button</string>
 </resources>
