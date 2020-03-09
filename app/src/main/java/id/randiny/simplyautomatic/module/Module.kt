@@ -4,9 +4,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 
 interface Module {
-    val config: ModuleConfig
 
-    fun init(config: ModuleConfig)
+    val name: String
+    val type: ModuleType
+    val configId: Int
+
+    fun init(configId: Int)
 
     fun getConfigurator(vm: ConfiguratorViewModel): Fragment
 
