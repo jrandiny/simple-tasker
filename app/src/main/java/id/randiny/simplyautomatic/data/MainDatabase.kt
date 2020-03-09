@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import id.randiny.simplyautomatic.data.moduleconfig.ModuleConfig
-import id.randiny.simplyautomatic.data.moduleconfig.MapConverter
 import id.randiny.simplyautomatic.data.moduleconfig.ModuleConfigDAO
+import id.randiny.simplyautomatic.data.moduleconfig.RoutineDAO
+import id.randiny.simplyautomatic.data.routine.Routine
 
-@Database(entities = arrayOf(ModuleConfig::class), version = 1, exportSchema = false)
-@TypeConverters(MapConverter::class)
+@Database(entities = arrayOf(ModuleConfig::class, Routine::class), version = 1, exportSchema = false)
+@TypeConverters(Converter::class)
 abstract class MainDatabase: RoomDatabase() {
     abstract fun moduleDAO(): ModuleConfigDAO
+    abstract fun routineDAO(): RoutineDAO
 
     companion object {
         @Volatile

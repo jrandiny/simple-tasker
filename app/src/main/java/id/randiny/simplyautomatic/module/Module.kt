@@ -1,12 +1,11 @@
 package id.randiny.simplyautomatic.module
 
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 
 interface Module {
 
     val name: String
-    val type: ModuleType
+    val behaviourType: ModuleBehaviourType
     val configId: Int
 
     fun init(configId: Int)
