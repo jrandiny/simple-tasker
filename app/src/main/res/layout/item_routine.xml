@@ -43,7 +43,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/kondisi"
+            android:id="@+id/condition"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -60,7 +60,7 @@
             android:layout_weight="0.5"/>
 
         <Button
-            android:id="@+id/aksi"
+            android:id="@+id/action"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 class RoutineViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_routine,parent,false)) {
     private var mName: TextView? = null
-    private var mKondisi: Button? = null
-    private var mAksi: Button? = null
+    private var mCondition: Button? = null
+    private var mAction: Button? = null
 
     init {
         mName = itemView.findViewById(R.id.name)
-        mKondisi = itemView.findViewById(R.id.kondisi)
-        mAksi = itemView.findViewById(R.id.aksi)
+        mCondition = itemView.findViewById(R.id.condition)
+        mAction = itemView.findViewById(R.id.action)
     }
 
     fun bind(routine: Routine) {
         mName?.text = routine.name
-        mKondisi?.text = routine.kondisi
-        mAksi?.text = routine.aksi
+        mCondition?.text = routine.condition
+        mAction?.text = routine.action
     }
 }

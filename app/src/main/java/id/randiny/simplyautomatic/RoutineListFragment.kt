@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_routine_list.*
 
-data class Routine(val name:String, val kondisi:String, val aksi:String)
+data class Routine(val name:String, val condition:String, val action:String)
 
 class RoutineListFragment : Fragment() {
 
