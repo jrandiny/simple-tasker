@@ -1,12 +1,14 @@
 package id.randiny.simplyautomatic.module
 
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 
 interface Module {
-    val config: ModuleConfig
 
-    fun init(config: ModuleConfig)
+    val name: String
+    val behaviourType: ModuleBehaviourType
+    val configId: Int
+
+    fun init(configId: Int)
 
     fun getConfigurator(vm: ConfiguratorViewModel): Fragment
 
