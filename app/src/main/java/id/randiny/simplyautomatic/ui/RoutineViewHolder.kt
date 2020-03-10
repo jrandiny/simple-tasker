@@ -10,8 +10,8 @@ import id.randiny.simplyautomatic.R
 class RoutineViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_routine,parent,false)) {
     private var mName: TextView? = null
-    private var mCondition: Button? = null
-    private var mAction: Button? = null
+    private var mCondition: TextView? = null
+    private var mAction: TextView? = null
 
     init {
         mName = itemView.findViewById(R.id.name)

@@ -1,7 +1,9 @@
 package id.randiny.simplyautomatic
 
+import android.app.AlarmManager
 import android.app.Notification
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -48,5 +50,24 @@ class MainActivity : AppCompatActivity() {
 //            .beginTransaction()
 //            .replace(R.id.option_button, FragmentSetting())
 //            .commit()
+
+        // Alarm manager
+        // Get AlarmManager instance
+//        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+//
+//        // Intent part
+//        val intent = Intent(this, AlarmBroadcastReceiver::class.java)
+//        intent.action = "FOO_ACTION"
+//        intent.putExtra("KEY_FOO_STRING", "Medium AlarmManager Demo")
+//
+//        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
+//
+//        // Alarm time
+//        val ALARM_DELAY_IN_SECOND = 10
+//        val alarmTimeAtUTC = System.currentTimeMillis() + ALARM_DELAY_IN_SECOND * 1_000L
+//
+//    // Set with system Alarm Service
+//    // Other possible functions: setExact() / setRepeating() / setWindow(), etc
+//        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarmTimeAtUTC, pendingIntent)
     }
 }
