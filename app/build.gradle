@@ -47,6 +47,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -66,7 +68,4 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$arch_version"
     implementation 'com.google.android.material:material:1.1.0'
 
-    // Navigation
-    implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
 }

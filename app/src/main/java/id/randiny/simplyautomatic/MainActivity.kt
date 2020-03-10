@@ -6,6 +6,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
+import FragmentOption
+import FragmentSetting
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,5 +32,11 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Create new action", Snackbar.LENGTH_LONG).show()
         }
+
+//         Setup option
+//        supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.option_button, FragmentSetting())
+//            .commit()
     }
 }
