@@ -1,11 +1,16 @@
 package id.randiny.simplyautomatic
 
+import android.app.Notification
+import android.app.PendingIntent
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import id.randiny.simplyautomatic.ui.RoutineListPagerAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Create new action", Snackbar.LENGTH_LONG).show()
+        }
+
+        // Setup service
+        if(!MainService.isInstanceCreated()){
+            val intent = Intent(this, MainService::class.java)
+            ContextCompat.startForegroundService(this, intent)
         }
     }
 }
