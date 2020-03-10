@@ -1,10 +1,10 @@
-package id.randiny.simplyautomatic
+package id.randiny.simplyautomatic.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ListAdapter(private val list: List<Routine>)
+class RoutineListAdapter(private val list: List<Routine>)
     : RecyclerView.Adapter<RoutineViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
         val inflater = LayoutInflater.from(parent.context)

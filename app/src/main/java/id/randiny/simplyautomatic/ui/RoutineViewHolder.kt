@@ -1,10 +1,11 @@
-package id.randiny.simplyautomatic
+package id.randiny.simplyautomatic.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import id.randiny.simplyautomatic.R
 
 class RoutineViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_routine,parent,false)) {
