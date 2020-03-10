@@ -4,4 +4,9 @@
     <string name="active_tab_title">Active</string>
     <string name="inactive_tab_title">Inactive</string>
     <string name="fab_tooltip">Add button</string>
+    <string name="routine_name">Routine name</string>
+    <string name="kondisi">Ev 5 min</string>
+    <string name="then">then</string>
+    <string name="aksi">what</string>
+    <string name="todo">TODO</string>
 </resources>
