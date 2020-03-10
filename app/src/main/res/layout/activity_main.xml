@@ -18,10 +18,9 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:minHeight="?actionBarSize"
                 android:padding="@dimen/appbar_padding"
                 android:text="@string/app_name"
@@ -35,8 +34,8 @@
                 android:layout_gravity="bottom|end"
                 android:background="@android:color/transparent"
                 android:padding="@dimen/appbar_padding"
-                app:srcCompat="@android:drawable/ic_menu_preferences"
-                android:contentDescription="@string/todo" />
+                android:contentDescription="@string/appbar_setting"
+                app:srcCompat="@drawable/ic_setting" />
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
@@ -59,5 +58,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:tooltipText="@string/fab_tooltip"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_add"
+        tools:ignore="UnusedAttribute" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

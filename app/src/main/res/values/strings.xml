@@ -1,16 +1,17 @@
 <resources>
     <string name="app_name">Simply Automatic</string>
     <string name="title_activity_main">Simply Automatic</string>
+
     <string name="active_tab_title">Active</string>
     <string name="inactive_tab_title">Inactive</string>
-    <string name="fab_tooltip">Add button</string>
-    <string name="routine_name">Routine name</string>
-    <string name="condition">Ev 5 min</string>
-    <string name="then">then</string>
-    <string name="action">what</string>
-    <string name="todo">TODO</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fab_tooltip">Add button</string>
+
     <string name="notification_text">Service is running</string>
+
+    <string name="routine_list_then">then</string>
+    <string name="routine_list_action_delete">Delete routine</string>
+    <string name="routine_list_action_toggle">Toggle routine activation</string>
+
+    <string name="appbar_setting">Setting</string>
 </resources>

@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:layout_editor_absoluteX="-90dp"
-    tools:layout_editor_absoluteY="76dp"
-    android:layout_marginBottom="1dp">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/routine_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/routine_on_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/routine_list_action_toggle"
+            android:src="@drawable/ic_toggle_activation" />
+
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="51dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="@string/routine_name"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            tools:text="Routine name" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/routine_delete"
             android:layout_width="wrap_content"
-            android:layout_height="51dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
-
-        <Switch
-            android:id="@+id/routine_on_off"
-            android:layout_width="wrap_content"
-            android:layout_height="51dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="0.1" />
+            android:contentDescription="@string/routine_list_action_delete"
+            android:src="@drawable/ic_delete" />
 
     </LinearLayout>
 
@@ -52,34 +52,36 @@
         android:id="@+id/detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/condition"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_weight="2"
-            android:text="@string/condition"
-            android:textSize="20sp" />
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            tools:text="Every 5 minutes" />
 
-        <TextView
+        <ImageView
             android:id="@+id/then"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/then"
-            android:textAlignment="center"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            android:contentDescription="@string/routine_list_then"
+            android:src="@drawable/ic_arrow_forward" />
 
         <TextView
             android:id="@+id/action"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_weight="2"
-            android:text="@string/action"
-            android:textSize="20sp" />
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            tools:text="Notify me" />
     </LinearLayout>
 
 </LinearLayout>
