@@ -8,32 +8,37 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.IBinder
-import android.widget.Toast
+import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.core.content.getSystemService
 
-class MainService:Service() {
+class MainService : Service() {
     private val SERVICE_NOTIFICATION_ID = 1
     private val SERVICE_CHANNEL_ID = "Service"
     private val SERVICE_CHANNEL_NAME = "Service Notification"
+    private val LOG_TAG = "My/Service"
 
 
-    companion object{
+    companion object {
         private var INSTANCE: MainService? = null
-        fun isInstanceCreated():Boolean {
+        fun isInstanceCreated(): Boolean {
             return INSTANCE != null;
         }
     }
 
 
-    override fun onBind(p0: Intent?): IBinder? {
+    override fun onBind(intent: Intent?): IBinder? {
         return null;
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            val channel = NotificationChannel(SERVICE_CHANNEL_ID, SERVICE_CHANNEL_NAME,NotificationManager.IMPORTANCE_NONE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationManager =
+                applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val channel = NotificationChannel(
+                SERVICE_CHANNEL_ID,
+                SERVICE_CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_NONE
+            )
             channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
             notificationManager.createNotificationChannel(channel)
         }
@@ -46,13 +51,13 @@ class MainService:Service() {
             .build()
 
         startForeground(SERVICE_NOTIFICATION_ID, notification)
-        Toast.makeText(this, "service start", Toast.LENGTH_LONG).show()
+        Log.d(LOG_TAG, "Service start")
         INSTANCE = this
         return START_STICKY
     }
 
     override fun onDestroy() {
         INSTANCE = null
-        Toast.makeText(this, "service done", Toast.LENGTH_LONG).show()
+        Log.d(LOG_TAG, "Service destroyed")
     }
 }
