@@ -1,4 +1,4 @@
-package id.randiny.simplyautomatic
+package id.randiny.simplyautomatic.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import id.randiny.simplyautomatic.R
 import kotlinx.android.synthetic.main.fragment_routine_list.*
 
 data class Routine(val name:String, val condition:String, val action:String)
@@ -15,9 +15,13 @@ data class Routine(val name:String, val condition:String, val action:String)
 class RoutineListFragment : Fragment() {
 
     private val dataExample = listOf(
-        Routine("Bangun pagi","05.00","Alarm"),
-        Routine("Tidur","22.00","Alarm"),
-        Routine("Belajar","18.00","Pemberitahuan")
+        Routine("Bangun pagi", "05.00", "Alarm"),
+        Routine("Tidur", "22.00", "Alarm"),
+        Routine(
+            "Belajar",
+            "18.00",
+            "Pemberitahuan"
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +42,13 @@ class RoutineListFragment : Fragment() {
         val lm = LinearLayoutManager(activity)
         list_item_view.apply{
             layoutManager = lm
-            adapter = ListAdapter(dataExample)
+            adapter = RoutineListAdapter(dataExample)
         }
         list_item_view.addItemDecoration(DividerItemDecoration(activity,lm.orientation))
     }
 
     companion object{
-        fun newInstance(): RoutineListFragment = RoutineListFragment()
+        fun newInstance(): RoutineListFragment =
+            RoutineListFragment()
     }
 }

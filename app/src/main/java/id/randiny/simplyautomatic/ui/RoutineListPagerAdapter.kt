@@ -1,14 +1,10 @@
-package id.randiny.simplyautomatic
+package id.randiny.simplyautomatic.ui
 
 import android.content.Context
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.recyclerview.widget.RecyclerView
+import id.randiny.simplyautomatic.R
 
 private val TAB_TITLES = arrayOf(
     R.string.active_tab_title,
