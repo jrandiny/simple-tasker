@@ -15,8 +15,8 @@ class RoutineViewModel(context: Context) : ViewModel() {
     val inactiveList: LiveData<List<Routine>> = routineDAO.getAllInactive()
 
     fun addItem(trigger: ModuleConfig, action: ModuleConfig) {
-        val routine = Routine(0,true,trigger.type, trigger.param, action.type, action.param)
-        Log.d("My/RoutineViewModel","Inserting entry")
+        val routine = Routine(0, true, trigger.type, trigger.param, action.type, action.param)
+        Log.d("My/RoutineViewModel", "Inserting entry")
         viewModelScope.launch {
             routineDAO.insert(routine)
         }

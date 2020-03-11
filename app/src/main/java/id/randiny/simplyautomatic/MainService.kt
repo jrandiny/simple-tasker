@@ -21,13 +21,13 @@ class MainService : Service() {
     companion object {
         private var INSTANCE: MainService? = null
         fun isInstanceCreated(): Boolean {
-            return INSTANCE != null;
+            return INSTANCE != null
         }
     }
 
 
     override fun onBind(intent: Intent?): IBinder? {
-        return null;
+        return null
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

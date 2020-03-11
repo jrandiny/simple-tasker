@@ -9,7 +9,7 @@ class Converter {
 
     @TypeConverter
     fun toMap(value: String?): Map<String, Any>? {
-        return Gson().fromJson(value, object: TypeToken<Map<String, Any>>() {}.type)
+        return Gson().fromJson(value, object : TypeToken<Map<String, Any>>() {}.type)
     }
 
     @TypeConverter
@@ -18,12 +18,12 @@ class Converter {
     }
 
     @TypeConverter
-    fun fromHealth(value: ModuleType): Int?{
+    fun fromHealth(value: ModuleType): Int? {
         return value.ordinal
     }
 
     @TypeConverter
-    fun toHealth(value: Int): ModuleType?{
+    fun toHealth(value: Int): ModuleType? {
         return ModuleType.valueOf(value)
     }
 }

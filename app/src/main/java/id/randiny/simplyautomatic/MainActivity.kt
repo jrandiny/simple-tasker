@@ -1,9 +1,5 @@
 package id.randiny.simplyautomatic
 
-import android.app.AlarmManager
-import android.app.Notification
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         // Setup VM
         val routineViewModel =
             ViewModelProvider(this, RoutineViewModelFactory(this)).get(RoutineViewModel::class.java)
-
 
         // Setup FAB
         val fab: FloatingActionButton = findViewById(R.id.fab)
