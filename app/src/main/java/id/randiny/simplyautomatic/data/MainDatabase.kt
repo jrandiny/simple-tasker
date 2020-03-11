@@ -5,9 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import id.randiny.simplyautomatic.data.moduleconfig.RoutineDAO
 
-@Database(entities = arrayOf(Routine::class), version = 1, exportSchema = false)
+@Database(entities = [Routine::class], version = 1, exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class MainDatabase: RoomDatabase() {
     abstract fun routineDAO(): RoutineDAO

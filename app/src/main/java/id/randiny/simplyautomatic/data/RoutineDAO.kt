@@ -1,8 +1,7 @@
-package id.randiny.simplyautomatic.data.moduleconfig
+package id.randiny.simplyautomatic.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import id.randiny.simplyautomatic.data.Routine
 
 @Dao
 interface RoutineDAO {
