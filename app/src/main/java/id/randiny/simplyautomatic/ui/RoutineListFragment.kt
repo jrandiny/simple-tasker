@@ -1,54 +1,66 @@
 package id.randiny.simplyautomatic.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.randiny.simplyautomatic.R
-import kotlinx.android.synthetic.main.fragment_routine_list.*
-
-data class Routine(val name:String, val condition:String, val action:String)
+import id.randiny.simplyautomatic.data.RoutineViewModel
+import id.randiny.simplyautomatic.data.RoutineViewModelFactory
+import kotlinx.android.synthetic.main.fragment_routine_list.view.*
 
 class RoutineListFragment : Fragment() {
 
-    private val dataExample = listOf(
-        Routine("Bangun pagi", "05.00", "Alarm"),
-        Routine("Tidur", "22.00", "Alarm"),
-        Routine(
-            "Belajar",
-            "18.00",
-            "Pemberitahuan"
-        )
-    )
+    private lateinit var routineViewModel: RoutineViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        retainInstance = true
+        routineViewModel = ViewModelProvider(this, RoutineViewModelFactory(requireActivity())).get(
+            RoutineViewModel::class.java
+        )
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_routine_list, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val root = inflater.inflate(R.layout.fragment_routine_list, container, false)
+        val activeList = arguments?.getBoolean(ARG_LIST_TYPE)
 
         val lm = LinearLayoutManager(activity)
-        list_item_view.apply{
-            layoutManager = lm
-            adapter = RoutineListAdapter(dataExample)
+        val adapter = RoutineListAdapter()
+        val listRecycler = root.list_item_view
+        listRecycler.layoutManager = lm
+        listRecycler.adapter = adapter
+        listRecycler.addItemDecoration(DividerItemDecoration(activity, lm.orientation))
+
+        if (activeList != null && activeList) {
+            routineViewModel.activeList.observe(this, Observer { routines ->
+                Log.d("My/new data", routines.toString())
+                adapter.submitList(routines)
+            })
+        } else {
+            routineViewModel.inactiveList.observe(this, Observer { routines ->
+                adapter.submitList(routines)
+            })
         }
-        list_item_view.addItemDecoration(DividerItemDecoration(activity,lm.orientation))
+        return root
     }
 
-    companion object{
-        fun newInstance(): RoutineListFragment =
-            RoutineListFragment()
+    companion object {
+        private const val ARG_LIST_TYPE = "use_active_list"
+
+        fun newInstance(listType: Boolean) = RoutineListFragment().apply {
+            arguments = Bundle().apply {
+                putBoolean(ARG_LIST_TYPE, listType)
+            }
+        }
     }
 }

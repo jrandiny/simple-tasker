@@ -14,8 +14,8 @@ private val TAB_TITLES = arrayOf(
 class RoutineListPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    override fun getItem(position: Int): Fragment{
-        return RoutineListFragment();
+    override fun getItem(position: Int): Fragment {
+        return RoutineListFragment.newInstance(position == 0)
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

@@ -22,4 +22,6 @@ class RoutineViewModel(context: Context) : ViewModel() {
         }
     }
 
+//    fun trigger()
+
 }

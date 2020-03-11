@@ -1,11 +1,12 @@
 package id.randiny.simplyautomatic.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import id.randiny.simplyautomatic.R
+import id.randiny.simplyautomatic.data.Routine
 
 class RoutineViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_routine,parent,false)) {
@@ -20,8 +21,9 @@ class RoutineViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     fun bind(routine: Routine) {
-        mName?.text = routine.name
-        mCondition?.text = routine.condition
-        mAction?.text = routine.action
+        Log.d("My/vh", routine.toString())
+        mName?.text = routine.actionType.toString()
+        mCondition?.text = routine.conditionType.toString()
+        mAction?.text = routine.actionType.toString()
     }
 }
