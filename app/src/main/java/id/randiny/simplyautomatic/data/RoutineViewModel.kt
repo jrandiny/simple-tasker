@@ -22,6 +22,18 @@ class RoutineViewModel(context: Context) : ViewModel() {
         }
     }
 
-//    fun trigger()
+    fun toggleActivation(id: Int) {
+        Log.d("My/RoutineViewModel", "Toggle entry $id")
+        viewModelScope.launch {
+            routineDAO.toggleActivation(id)
+        }
+    }
+
+    fun deleteRoutine(id: Int) {
+        Log.d("My/RoutineViewModel", "Delete entry $id")
+        viewModelScope.launch {
+            routineDAO.delete(id)
+        }
+    }
 
 }

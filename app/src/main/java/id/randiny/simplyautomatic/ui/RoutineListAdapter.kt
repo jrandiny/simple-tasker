@@ -19,9 +19,12 @@ val diffUtil = object : DiffUtil.ItemCallback<Routine>() {
 class RoutineListAdapter
     : ListAdapter<Routine, RoutineViewHolder>(diffUtil) {
 
+    lateinit var toggleCallback: (Int) -> Unit
+    lateinit var deleteCallback: (Int) -> Unit
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return RoutineViewHolder(inflater, parent)
+        return RoutineViewHolder(inflater, parent, toggleCallback, deleteCallback)
     }
 
     override fun onBindViewHolder(holder: RoutineViewHolder, position: Int) {

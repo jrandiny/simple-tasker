@@ -1,7 +1,6 @@
 package id.randiny.simplyautomatic.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,16 +33,19 @@ class RoutineListFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_routine_list, container, false)
         val activeList = arguments?.getBoolean(ARG_LIST_TYPE)
 
+        val listRecycler = root.list_item_view
+
         val lm = LinearLayoutManager(activity)
         val adapter = RoutineListAdapter()
-        val listRecycler = root.list_item_view
+        adapter.toggleCallback = routineViewModel::toggleActivation
+        adapter.deleteCallback = routineViewModel::deleteRoutine
+
         listRecycler.layoutManager = lm
         listRecycler.adapter = adapter
         listRecycler.addItemDecoration(DividerItemDecoration(activity, lm.orientation))
 
         if (activeList != null && activeList) {
             routineViewModel.activeList.observe(this, Observer { routines ->
-                Log.d("My/new data", routines.toString())
                 adapter.submitList(routines)
             })
         } else {
@@ -51,6 +53,7 @@ class RoutineListFragment : Fragment() {
                 adapter.submitList(routines)
             })
         }
+
         return root
     }
 
