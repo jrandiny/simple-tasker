@@ -14,4 +14,7 @@
     <string name="routine_list_action_toggle">Toggle routine activation</string>
 
     <string name="appbar_setting">Setting</string>
+    <string name="dialog_confirm_delete">Are you sure?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 </resources>

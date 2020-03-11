@@ -1,5 +1,7 @@
 package id.randiny.simplyautomatic.ui
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +40,17 @@ class RoutineListFragment : Fragment() {
         val lm = LinearLayoutManager(activity)
         val adapter = RoutineListAdapter()
         adapter.toggleCallback = routineViewModel::toggleActivation
-        adapter.deleteCallback = routineViewModel::deleteRoutine
+        adapter.deleteCallback = { id: Int ->
+            AlertDialog.Builder(context)
+                .setMessage(getString(R.string.dialog_confirm_delete))
+                .setPositiveButton(getString(R.string.dialog_yes)) { _: DialogInterface, _: Int ->
+                    routineViewModel.deleteRoutine(id)
+                }
+                .setNegativeButton(getString(R.string.dialog_no)) { dialog: DialogInterface, _: Int ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
 
         listRecycler.layoutManager = lm
         listRecycler.adapter = adapter
