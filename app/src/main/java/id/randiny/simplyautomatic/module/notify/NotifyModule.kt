@@ -5,24 +5,26 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import id.randiny.simplyautomatic.R
 import id.randiny.simplyautomatic.module.Module
 
-class NotifyModule(routineId: Int, context: Context) :
-    Module(routineId, context) {
-
-    private lateinit var context: Context
+class NotifyModule(
+    identifier: Int,
+    private val param: Map<String, String>,
+    private val context: Context
+) :
+    Module(identifier, param, context) {
 
     companion object {
+        private const val LOG_TAG = "My/NotifyModule"
         private const val NOTIF_CHANNEL_ID = "notif"
         private const val NOTIF_CHANNEL_NAME = "Notification module"
     }
 
-    override fun init(context: Context) {
-    }
-
     override fun action() {
+        Log.d(LOG_TAG, "Preparing notification with param $param")
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -42,6 +44,8 @@ class NotifyModule(routineId: Int, context: Context) :
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
-        notificationManager.notify(1, notification)
+        val notificationId = NotificationIdGenerator.generateId()
+        Log.d(LOG_TAG, "Creating notif with id $notificationId")
+        notificationManager.notify(notificationId, notification)
     }
 }
