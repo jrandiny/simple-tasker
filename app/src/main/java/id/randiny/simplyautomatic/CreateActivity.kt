@@ -41,12 +41,9 @@ class CreateActivity : AppCompatActivity() {
         createButton.isEnabled = false
 
         createButton.setOnClickListener {
-            val sampleParam = mutableMapOf<String, Any>()
-            sampleParam.put("sample1", 123)
-            sampleParam.put("sample2", "asd")
-            val trigger = ModuleConfig(ModuleType.TIME, sampleParam)
-            val action = ModuleConfig(ModuleType.API, sampleParam)
-            routineListViewModel.addItem(trigger, action)
+            val trigger = routineViewModel.getAction().value
+            val action = routineViewModel.getAction().value
+            routineListViewModel.addItem(trigger!!, action!!)
             finish()
         }
 
