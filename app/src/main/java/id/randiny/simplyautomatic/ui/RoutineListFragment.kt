@@ -13,18 +13,23 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.randiny.simplyautomatic.R
-import id.randiny.simplyautomatic.data.RoutineViewModel
-import id.randiny.simplyautomatic.data.RoutineViewModelFactory
+import id.randiny.simplyautomatic.viewmodel.RoutineListViewModel
+import id.randiny.simplyautomatic.viewmodel.RoutineListViewModelFactory
 
 class RoutineListFragment : Fragment() {
 
-    private lateinit var routineViewModel: RoutineViewModel
+    private lateinit var routineListViewModel: RoutineListViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        routineViewModel = ViewModelProvider(this, RoutineViewModelFactory(requireActivity())).get(
-            RoutineViewModel::class.java
+        routineListViewModel = ViewModelProvider(
+            this,
+            RoutineListViewModelFactory(
+                requireActivity()
+            )
+        ).get(
+            RoutineListViewModel::class.java
         )
     }
 
@@ -39,12 +44,12 @@ class RoutineListFragment : Fragment() {
 
         val lm = LinearLayoutManager(activity)
         val adapter = RoutineListAdapter()
-        adapter.toggleCallback = routineViewModel::toggleActivation
+        adapter.toggleCallback = routineListViewModel::toggleActivation
         adapter.deleteCallback = { id: Int ->
             AlertDialog.Builder(context)
                 .setMessage(getString(R.string.dialog_confirm_delete))
                 .setPositiveButton(getString(R.string.dialog_yes)) { _: DialogInterface, _: Int ->
-                    routineViewModel.deleteRoutine(id)
+                    routineListViewModel.deleteRoutine(id)
                 }
                 .setNegativeButton(getString(R.string.dialog_no)) { dialog: DialogInterface, _: Int ->
                     dialog.dismiss()
@@ -57,11 +62,11 @@ class RoutineListFragment : Fragment() {
         listRecycler.addItemDecoration(DividerItemDecoration(activity, lm.orientation))
 
         if (activeList != null && activeList) {
-            routineViewModel.activeList.observe(this, Observer { routines ->
+            routineListViewModel.activeList.observe(this, Observer { routines ->
                 adapter.submitList(routines)
             })
         } else {
-            routineViewModel.inactiveList.observe(this, Observer { routines ->
+            routineListViewModel.inactiveList.observe(this, Observer { routines ->
                 adapter.submitList(routines)
             })
         }
