@@ -1,11 +1,11 @@
 package id.randiny.simplyautomatic.ui
 
-import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +19,6 @@ import id.randiny.simplyautomatic.viewmodel.RoutineListViewModelFactory
 class RoutineListFragment : Fragment() {
 
     private lateinit var routineListViewModel: RoutineListViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +45,7 @@ class RoutineListFragment : Fragment() {
         val adapter = RoutineListAdapter()
         adapter.toggleCallback = routineListViewModel::toggleActivation
         adapter.deleteCallback = { id: Int ->
-            AlertDialog.Builder(context)
+            AlertDialog.Builder(requireContext())
                 .setMessage(getString(R.string.dialog_confirm_delete))
                 .setPositiveButton(getString(R.string.dialog_yes)) { _: DialogInterface, _: Int ->
                     routineListViewModel.deleteRoutine(id)
