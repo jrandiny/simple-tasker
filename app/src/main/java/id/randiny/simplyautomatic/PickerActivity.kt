@@ -3,7 +3,6 @@ package id.randiny.simplyautomatic
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +15,13 @@ class PickerActivity : AppCompatActivity() {
 
     companion object {
         val MODULE_IS_ACTION_EXTRA = "is_action"
-        val PICKED_MODULE_EXTRA = "picked"
+        val RETURN_PICKED_MODULE_EXTRA = "picked"
+        val RETURN_PICKED_MODULE_CONFIG = "picked_config"
+
+        val GET_CONFIGURATION_REQUEST_CODE = 1
     }
+
+    private var selectedModule: ModuleType? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,16 +38,16 @@ class PickerActivity : AppCompatActivity() {
             }
         }
 
-        Log.d("My/list", module.toString())
-
         val recycler = findViewById<RecyclerView>(R.id.module_list)
 
         val lm = LinearLayoutManager(this)
         val adapter = ModuleListAdapter(module) {
-            val intent = Intent()
-            intent.putExtra(PICKED_MODULE_EXTRA, it)
-            setResult(Activity.RESULT_OK, intent)
-            finish()
+            selectedModule = it
+            val intent = Intent(this, ConfiguratorActivity::class.java)
+            intent.putExtra(ConfiguratorActivity.MODULE_TO_CONFIGURE_EXTRA, it)
+            startActivityForResult(intent, GET_CONFIGURATION_REQUEST_CODE)
+
+
         }
         recycler.layoutManager = lm
         recycler.adapter = adapter
@@ -51,5 +55,20 @@ class PickerActivity : AppCompatActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == GET_CONFIGURATION_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val parameter =
+                    data!!.getSerializableExtra(ConfiguratorActivity.RETURN_CONFIGURED_MODULE_PARAM)
+                val intent = Intent()
+                intent.putExtra(RETURN_PICKED_MODULE_EXTRA, selectedModule)
+                intent.putExtra(RETURN_PICKED_MODULE_CONFIG, parameter)
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+            }
+        }
+    }
 
 }

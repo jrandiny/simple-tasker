@@ -8,12 +8,12 @@ import id.randiny.simplyautomatic.module.ModuleType
 class Converter {
 
     @TypeConverter
-    fun toMap(value: String?): Map<String, Any>? {
-        return Gson().fromJson(value, object : TypeToken<Map<String, Any>>() {}.type)
+    fun toMap(value: String?): Map<String, String>? {
+        return Gson().fromJson(value, object : TypeToken<Map<String, String>>() {}.type)
     }
 
     @TypeConverter
-    fun fromMap(data: Map<String, Any>?): String? {
+    fun fromMap(data: Map<String, String>?): String? {
         return Gson().toJson(data)
     }
 

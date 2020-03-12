@@ -12,8 +12,8 @@ data class Routine(
     val name: String,
     val conditionName: String,
     val conditionType: ModuleType,
-    val conditionParam: Map<String, Any>,
+    val conditionParam: Map<String, String>,
     val actionName: String,
     val actionType: ModuleType,
-    val actionParam: Map<String, Any>
+    val actionParam: Map<String, String>
 )

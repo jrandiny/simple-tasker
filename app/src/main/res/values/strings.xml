@@ -31,4 +31,8 @@
 
     <!-- Picker Activity -->
     <string name="title_activity_picker">Pick Module</string>
+
+    <!-- Configurator Activity -->
+    <string name="title_activity_configurator">Configure Module</string>
+    <string name="configurator_confirm">Configure Module</string>
 </resources>

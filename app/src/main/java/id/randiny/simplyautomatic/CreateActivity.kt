@@ -81,8 +81,6 @@ class CreateActivity : AppCompatActivity() {
             val intent = Intent(this, PickerActivity::class.java)
             intent.putExtra(PickerActivity.MODULE_IS_ACTION_EXTRA, true)
             startActivityForResult(intent, GET_ACTION_REQUEST_CODE)
-//            val action = ModuleConfig("name aksi", ModuleType.NOTIFY, mapOf())
-//            routineViewModel.setAction(action)
         }
 
         nameEditText.addTextChangedListener {
@@ -96,15 +94,22 @@ class CreateActivity : AppCompatActivity() {
 
         if (requestCode == GET_CONDITION_REQUEST_CODE || requestCode == GET_ACTION_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                val type = data!!.getSerializableExtra(PickerActivity.PICKED_MODULE_EXTRA)
-                if (type != null) {
-                    val moduleType = type as ModuleType
-                    if (requestCode == GET_CONDITION_REQUEST_CODE) {
-                        val condition = ModuleConfig("nama kondisi", moduleType, mapOf())
-                        routineViewModel.setCondition(condition)
-                    } else {
-                        val action = ModuleConfig("nama aksi", moduleType, mapOf())
-                        routineViewModel.setAction(action)
+                if (data != null) {
+                    val type = data.getSerializableExtra(PickerActivity.RETURN_PICKED_MODULE_EXTRA)
+                    val parameter =
+                        data.getSerializableExtra(PickerActivity.RETURN_PICKED_MODULE_CONFIG)
+
+                    if (type != null && parameter != null) {
+                        val moduleType = type as ModuleType
+                        val moduleParam = parameter as HashMap<String, String>
+
+                        if (requestCode == GET_CONDITION_REQUEST_CODE) {
+                            val condition = ModuleConfig("nama kondisi", moduleType, moduleParam)
+                            routineViewModel.setCondition(condition)
+                        } else {
+                            val action = ModuleConfig("nama aksi", moduleType, moduleParam)
+                            routineViewModel.setAction(action)
+                        }
                     }
                 }
             }

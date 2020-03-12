@@ -61,11 +61,11 @@ class RoutineListFragment : Fragment() {
         listRecycler.addItemDecoration(DividerItemDecoration(activity, lm.orientation))
 
         if (activeList != null && activeList) {
-            routineListViewModel.activeList.observe(this, Observer { routines ->
+            routineListViewModel.activeList.observe(viewLifecycleOwner, Observer { routines ->
                 adapter.submitList(routines)
             })
         } else {
-            routineListViewModel.inactiveList.observe(this, Observer { routines ->
+            routineListViewModel.inactiveList.observe(viewLifecycleOwner, Observer { routines ->
                 adapter.submitList(routines)
             })
         }

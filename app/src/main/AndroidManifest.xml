@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ConfiguratorActivity"
+            android:label="@string/title_activity_configurator"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".PickerActivity"
             android:label="@string/title_activity_picker"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -19,15 +23,6 @@
             android:name=".CreateActivity"
             android:label="@string/title_activity_create"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <receiver
-            android:name=".AlarmBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.TIME_SET" />
-            </intent-filter>
-        </receiver>
 
         <activity
             android:name=".MainActivity"
