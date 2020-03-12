@@ -85,8 +85,9 @@ class MainService : Service() {
     }
 
     override fun onDestroy() {
-        INSTANCE = null
         routineDAO.getAllActive().removeObserver(routineObserver)
+        cleanupService()
+        INSTANCE = null
         Log.d(LOG_TAG, "Service destroyed")
     }
 
