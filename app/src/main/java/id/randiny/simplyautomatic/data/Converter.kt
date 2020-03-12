@@ -18,12 +18,12 @@ class Converter {
     }
 
     @TypeConverter
-    fun fromHealth(value: ModuleType): Int? {
+    fun fromModuleType(value: ModuleType): Int? {
         return value.ordinal
     }
 
     @TypeConverter
-    fun toHealth(value: Int): ModuleType? {
+    fun toModuleType(value: Int): ModuleType? {
         return ModuleType.valueOf(value)
     }
 }

@@ -9,13 +9,15 @@ import id.randiny.simplyautomatic.data.ModuleConfig
 class RoutineViewModel : ViewModel() {
     private val condition: MutableLiveData<ModuleConfig> = MutableLiveData()
     private val action: MutableLiveData<ModuleConfig> = MutableLiveData()
+    private val name: MutableLiveData<String> = MutableLiveData()
 
     val validConfig: LiveData<Boolean> = MediatorLiveData<Boolean>().apply {
         var conditionStatus = false
         var actionStatus = false
+        var nameStatus = false
 
         fun update() {
-            this.postValue(conditionStatus && actionStatus)
+            this.postValue(conditionStatus && actionStatus && nameStatus)
         }
 
         addSource(condition) {
@@ -24,6 +26,10 @@ class RoutineViewModel : ViewModel() {
         }
         addSource(action) {
             actionStatus = it != null
+            update()
+        }
+        addSource(name) {
+            nameStatus = it != null && it.isNotEmpty()
             update()
         }
     }
@@ -42,6 +48,14 @@ class RoutineViewModel : ViewModel() {
 
     fun setAction(data: ModuleConfig) {
         action.postValue(data)
+    }
+
+    fun getName(): LiveData<String> {
+        return name
+    }
+
+    fun setName(data: String) {
+        name.postValue(data)
     }
 
 }

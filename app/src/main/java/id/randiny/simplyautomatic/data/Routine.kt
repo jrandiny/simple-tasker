@@ -9,8 +9,11 @@ data class Routine(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val active: Boolean,
+    val name: String,
+    val conditionName: String,
     val conditionType: ModuleType,
     val conditionParam: Map<String, Any>,
+    val actionName: String,
     val actionType: ModuleType,
     val actionParam: Map<String, Any>
 )

@@ -1,8 +1,10 @@
 package id.randiny.simplyautomatic
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
@@ -19,6 +21,7 @@ class CreateActivity : AppCompatActivity() {
     private lateinit var createButton: MaterialButton
     private lateinit var conditionButton: MaterialButton
     private lateinit var actionButton: MaterialButton
+    private lateinit var nameEditText: EditText
 
     private val routineViewModel: RoutineViewModel by viewModels()
 
@@ -30,6 +33,7 @@ class CreateActivity : AppCompatActivity() {
         createButton = findViewById(R.id.create_btn)
         conditionButton = findViewById(R.id.condition_btn)
         actionButton = findViewById(R.id.action_btn)
+        nameEditText = findViewById(R.id.routine_name)
 
         routineListViewModel =
             ViewModelProvider(
@@ -41,39 +45,39 @@ class CreateActivity : AppCompatActivity() {
         createButton.isEnabled = false
 
         createButton.setOnClickListener {
-            val trigger = routineViewModel.getAction().value
+            val trigger = routineViewModel.getCondition().value
             val action = routineViewModel.getAction().value
-            routineListViewModel.addItem(trigger!!, action!!)
+            val name = routineViewModel.getName().value
+            routineListViewModel.addItem(name!!, trigger!!, action!!)
             finish()
         }
 
         routineViewModel.getCondition().observe(this, Observer {
-            if (it != null) {
-                conditionButton.text = it.type.toString()
-            }
+            conditionButton.text = it.name
         })
 
         conditionButton.setOnClickListener {
-            val action = ModuleConfig(ModuleType.API, mapOf())
-            routineViewModel.setCondition(action)
+            val condition = ModuleConfig("nama kondisi", ModuleType.API, mapOf())
+            routineViewModel.setCondition(condition)
         }
 
         routineViewModel.getAction().observe(this, Observer {
-            if (it != null) {
-                actionButton.text = it.type.toString()
-            }
+            actionButton.text = it.name
+
         })
 
         actionButton.setOnClickListener {
-            val action = ModuleConfig(ModuleType.TIME, mapOf())
+            val action = ModuleConfig("name aksi", ModuleType.TIME, mapOf())
             routineViewModel.setAction(action)
         }
 
         routineViewModel.validConfig.observe(this, Observer {
-            if (it) {
-                createButton.isEnabled = true
-            }
+            createButton.isEnabled = it
         })
+
+        nameEditText.addTextChangedListener {
+            routineViewModel.setName(it.toString())
+        }
     }
 
 }

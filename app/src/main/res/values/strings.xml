@@ -26,4 +26,6 @@
     <string name="create_card_then">then…</string>
     <string name="create_card_select_condition">Select Condition</string>
     <string name="create_card_select_action">Select Action</string>
+    <string name="create_card_name">Name</string>
+    <string name="create_card_name_hint">Enter routine name</string>
 </resources>

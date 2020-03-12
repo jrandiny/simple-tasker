@@ -20,12 +20,15 @@ class RoutineListViewModel(context: Context) : ViewModel() {
     val activeList: LiveData<List<Routine>> = routineDAO.getAllActive()
     val inactiveList: LiveData<List<Routine>> = routineDAO.getAllInactive()
 
-    fun addItem(trigger: ModuleConfig, action: ModuleConfig) {
+    fun addItem(name: String, trigger: ModuleConfig, action: ModuleConfig) {
         val routine = Routine(
             0,
             true,
+            name,
+            trigger.name,
             trigger.type,
             trigger.param,
+            action.name,
             action.type,
             action.param
         )

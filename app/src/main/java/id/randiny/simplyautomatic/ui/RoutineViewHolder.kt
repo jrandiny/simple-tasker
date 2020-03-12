@@ -21,9 +21,9 @@ class RoutineViewHolder(
 
 
     fun bind(routine: Routine) {
-        mName.text = routine.actionType.toString()
-        mCondition.text = routine.conditionType.toString()
-        mAction.text = routine.actionType.toString()
+        mName.text = routine.name
+        mCondition.text = routine.conditionName
+        mAction.text = routine.actionName
 
         itemView.findViewById<ImageButton>(R.id.routine_on_off).setOnClickListener {
             toggleCallback(routine.id)
