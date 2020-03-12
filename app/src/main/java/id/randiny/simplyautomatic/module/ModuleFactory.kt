@@ -1,19 +1,21 @@
 package id.randiny.simplyautomatic.module
 
 import android.content.Context
+import androidx.fragment.app.Fragment
 import id.randiny.simplyautomatic.data.Routine
 import id.randiny.simplyautomatic.module.notify.NotifyModule
 import id.randiny.simplyautomatic.module.time.TimeModule
 
 object ModuleFactory {
-    fun createModule(routine: Routine, condition: Boolean, context: Context) {
-        when (if (condition) routine.conditionType else routine.actionType) {
-            ModuleType.NOTIFY -> NotifyModule(routine.id, context)
-            ModuleType.TIME -> TimeModule(routine.id, context)
+    fun createModule(routine: Routine, condition: Boolean, context: Context): Module {
+        val param = if (condition) routine.conditionParam else routine.actionParam
+        return when (if (condition) routine.conditionType else routine.actionType) {
+            ModuleType.NOTIFY -> NotifyModule(routine.id, param, context)
+            ModuleType.TIME -> TimeModule(routine.id, param, context)
         }
     }
 
-    fun createConfigurator(type: ModuleType) {
+    fun createConfigurator(type: ModuleType): Fragment {
         when (type) {
             ModuleType.TIME -> TODO()
             ModuleType.NOTIFY -> TODO()
