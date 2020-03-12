@@ -1,4 +1,4 @@
-package id.randiny.simplyautomatic
+package id.randiny.simplyautomatic.module.time
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import android.widget.TextView
-import kotlinx.android.synthetic.main.module_timer.*
+import id.randiny.simplyautomatic.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [TimerModule.newInstance] factory method to
+ * Use the [TimeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TimerModule : Fragment() {
+class TimeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.module_timer, container, false)
+        return inflater.inflate(R.layout.fragment_time, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SensorModule">
+    tools:context=".module.notify.NotifyFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,17 +15,33 @@
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="?actionBarSize"
-                android:padding="@dimen/appbar_padding"
-                android:text="Sensor"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-                tools:ignore="HardcodedText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/todo"
+                    android:padding="@dimen/appbar_padding"
+                    android:src="@drawable/abc_vector_test"
+                    tools:ignore="PrivateResource" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="?actionBarSize"
+                    android:padding="@dimen/appbar_padding"
+                    android:text="Notify Me"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
 
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -37,20 +53,20 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:text="Type :"
+            android:text="Title :"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <EditText
+            android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:text="Accelerometer"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+            android:ems="10"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/textView2"
@@ -59,7 +75,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:text="Minimum value :"
+            android:text="Text Detail :"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
@@ -71,8 +87,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:ems="10"
-            android:importantForAutofill="no"
-            android:inputType="numberDecimal" />
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/button"

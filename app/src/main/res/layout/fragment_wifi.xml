@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotifyModule">
+    tools:context=".module.wifi.WifiFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                     android:layout_weight="1"
                     android:minHeight="?actionBarSize"
                     android:padding="@dimen/appbar_padding"
-                    android:text="Notify Me"
+                    android:text="Wifi"
                     android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
                     tools:ignore="HardcodedText" />
@@ -46,49 +46,24 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <TextView
-            android:id="@+id/textView"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Title :"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:ems="10"
-            android:inputType="text"
-            android:importantForAutofill="no" />
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Turn on wifi"
+                tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Text Detail :"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:ems="10"
-            android:inputType="text"
-            android:importantForAutofill="no" />
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Turn off wifi"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
 
         <Button
             android:id="@+id/button"
@@ -98,6 +73,7 @@
             android:layout_marginTop="30dp"
             android:text="Submit"
             tools:ignore="HardcodedText" />
+
     </LinearLayout>
 
 </FrameLayout>

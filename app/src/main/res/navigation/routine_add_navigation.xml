@@ -56,7 +56,7 @@
         android:id="@+id/externalAPIFragment"
         android:name="id.randiny.simplyautomatic.ExternalAPIModule"
         android:label="fragment_external_api"
-        tools:layout="@layout/module_external_api" >
+        tools:layout="@layout/fragment_external_api" >
         <action
             android:id="@+id/action_externalAPIFragment_to_actionOptionFragment"
             app:destination="@id/actionOptionFragment" />
@@ -69,9 +69,9 @@
     </fragment>
     <fragment
         android:id="@+id/notifyMeFragment"
-        android:name="id.randiny.simplyautomatic.NotifyModule"
+        android:name="id.randiny.simplyautomatic.module.notify.NotifyModule"
         android:label="fragment_notify_me"
-        tools:layout="@layout/module_notify" >
+        tools:layout="@layout/fragment_notify" >
         <action
             android:id="@+id/action_notifyMeFragment_to_addPageFragment"
             app:destination="@id/addPageFragment" />
@@ -81,9 +81,9 @@
     </fragment>
     <fragment
         android:id="@+id/sensorFragment"
-        android:name="id.randiny.simplyautomatic.SensorModule"
+        android:name="id.randiny.simplyautomatic.module.sensor.SensorFragment"
         android:label="fragment_sensor"
-        tools:layout="@layout/module_sensor" >
+        tools:layout="@layout/fragment_sensor" >
         <action
             android:id="@+id/action_sensorFragment_to_addPageFragment"
             app:destination="@id/addPageFragment" />
@@ -93,9 +93,9 @@
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
-        android:name="id.randiny.simplyautomatic.TimerModule"
+        android:name="id.randiny.simplyautomatic.module.time.TimeFragment"
         android:label="fragment_timer"
-        tools:layout="@layout/module_timer" >
+        tools:layout="@layout/fragment_time" >
         <action
             android:id="@+id/action_timerFragment_to_conditionOptionFragment"
             app:destination="@id/conditionOptionFragment" />
@@ -105,9 +105,9 @@
     </fragment>
     <fragment
         android:id="@+id/wifiFragment"
-        android:name="id.randiny.simplyautomatic.WifiModule"
+        android:name="id.randiny.simplyautomatic.module.wifi.WifiFragment"
         android:label="fragment_wifi"
-        tools:layout="@layout/module_wifi" >
+        tools:layout="@layout/fragment_wifi" >
         <action
             android:id="@+id/action_wifiFragment_to_actionOptionFragment"
             app:destination="@id/actionOptionFragment" />
