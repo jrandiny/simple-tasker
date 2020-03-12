@@ -6,6 +6,7 @@ import id.randiny.simplyautomatic.data.Routine
 import id.randiny.simplyautomatic.module.notify.NotifyModule
 import id.randiny.simplyautomatic.module.sensor.SensorModule
 import id.randiny.simplyautomatic.module.time.TimeModule
+import id.randiny.simplyautomatic.module.wifi.WifiModule
 
 object ModuleFactory {
     fun createModule(routine: Routine, condition: Boolean, context: Context): Module {
@@ -14,6 +15,7 @@ object ModuleFactory {
             ModuleType.NOTIFY -> NotifyModule(routine.id, param, context)
             ModuleType.TIME -> TimeModule(routine.id, param, context)
             ModuleType.SENSOR -> SensorModule(routine.id, param, context)
+            ModuleType.WIFI -> WifiModule(routine.id, param, context)
         }
     }
 
@@ -22,6 +24,7 @@ object ModuleFactory {
             ModuleType.TIME -> TODO()
             ModuleType.NOTIFY -> TODO()
             ModuleType.SENSOR -> TODO()
+            ModuleType.WIFI -> TODO()
         }
     }
 }
