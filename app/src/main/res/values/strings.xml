@@ -14,7 +14,16 @@
     <string name="routine_list_action_toggle">Toggle routine activation</string>
 
     <string name="appbar_setting">Setting</string>
+
     <string name="dialog_confirm_delete">Are you sure?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
+
+    <!-- Create Activity -->
+    <string name="title_activity_create">Create New Routine</string>
+    <string name="create_ok_button">Create Routine</string>
+    <string name="create_card_if">If…</string>
+    <string name="create_card_then">then…</string>
+    <string name="create_card_select_condition">Select Condition</string>
+    <string name="create_card_select_action">Select Action</string>
 </resources>
