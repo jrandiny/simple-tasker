@@ -4,7 +4,8 @@ enum class ModuleType {
     TIME,
     NOTIFY,
     SENSOR,
-    WIFI;
+    WIFI,
+    SONOFF;
 
     companion object {
         fun valueOf(value: Int) = values().find { it.ordinal == value }
@@ -14,6 +15,7 @@ enum class ModuleType {
                 NOTIFY -> "Notification"
                 SENSOR -> "Sensor"
                 WIFI -> "Wifi"
+                SONOFF -> "Sonoff"
             }
         }
 
@@ -23,6 +25,7 @@ enum class ModuleType {
                 NOTIFY -> ModuleBehaviourType.ACTION
                 SENSOR -> ModuleBehaviourType.TRIGGER
                 WIFI -> ModuleBehaviourType.ACTION
+                SONOFF -> ModuleBehaviourType.ACTION
             }
         }
 
@@ -32,6 +35,7 @@ enum class ModuleType {
                 NOTIFY -> "SHow notification blbblblb"
                 SENSOR -> "Use your amazing sensor so waw"
                 WIFI -> "Toggle your wifi"
+                SONOFF -> "Toggle sonoff smart switch"
             }
         }
     }
