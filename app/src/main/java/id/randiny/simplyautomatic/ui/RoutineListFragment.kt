@@ -11,10 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import id.randiny.simplyautomatic.R
 import id.randiny.simplyautomatic.data.RoutineViewModel
 import id.randiny.simplyautomatic.data.RoutineViewModelFactory
-import kotlinx.android.synthetic.main.fragment_routine_list.view.*
 
 class RoutineListFragment : Fragment() {
 
@@ -32,10 +32,10 @@ class RoutineListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_routine_list, container, false)
+        val root = inflater.inflate(R.layout.main_fragment_routine_list, container, false)
         val activeList = arguments?.getBoolean(ARG_LIST_TYPE)
 
-        val listRecycler = root.list_item_view
+        val listRecycler = root.findViewById<RecyclerView>(R.id.list_item_view)
 
         val lm = LinearLayoutManager(activity)
         val adapter = RoutineListAdapter()

@@ -14,7 +14,7 @@ class RoutineViewHolder(
     private val toggleCallback: (Int) -> Unit,
     private val deleteCallback: (Int) -> Unit
 ) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.item_routine, parent, false)) {
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.main_routine_item, parent, false)) {
     private val mName: TextView = itemView.findViewById(R.id.name)
     private val mCondition: TextView = itemView.findViewById(R.id.condition)
     private val mAction: TextView = itemView.findViewById(R.id.action)
