@@ -11,7 +11,7 @@ import id.randiny.simplyautomatic.R
 import id.randiny.simplyautomatic.module.Module
 
 class NotifyModule(
-    identifier: Int,
+    private val identifier: Int,
     private val param: Map<String, String>,
     private val context: Context
 ) :
@@ -19,7 +19,7 @@ class NotifyModule(
 
     companion object {
         private const val LOG_TAG = "My/NotifyModule"
-        private const val NOTIF_CHANNEL_ID = "notif"
+        private const val NOTIF_CHANNEL_ID = "notification"
         private const val NOTIF_CHANNEL_NAME = "Notification module"
     }
 
@@ -46,6 +46,6 @@ class NotifyModule(
 
         val notificationId = NotificationIdGenerator.generateId()
         Log.d(LOG_TAG, "Creating notif with id $notificationId")
-        notificationManager.notify(notificationId, notification)
+        notificationManager.notify(notificationId + identifier * 1000000, notification)
     }
 }
