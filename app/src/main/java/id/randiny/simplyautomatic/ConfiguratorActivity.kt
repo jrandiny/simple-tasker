@@ -10,8 +10,8 @@ import id.randiny.simplyautomatic.module.ModuleType
 class ConfiguratorActivity : AppCompatActivity() {
 
     companion object {
-        val MODULE_TO_CONFIGURE_EXTRA = "module_configure"
-        val RETURN_CONFIGURED_MODULE_PARAM = "configured_module"
+        const val MODULE_TO_CONFIGURE_EXTRA = "module_configure"
+        const val RETURN_CONFIGURED_MODULE_PARAM = "configured_module"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +25,8 @@ class ConfiguratorActivity : AppCompatActivity() {
             val intent = Intent()
 
             val out: HashMap<String, String> = hashMapOf()
-            out.put("A", "A")
-            out.put("B", "B")
+            out["A"] = "A"
+            out["B"] = "B"
 
             intent.putExtra(RETURN_CONFIGURED_MODULE_PARAM, out)
             setResult(Activity.RESULT_OK, intent)

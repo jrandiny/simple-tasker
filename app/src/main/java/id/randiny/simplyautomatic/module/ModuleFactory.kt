@@ -7,8 +7,7 @@ import id.randiny.simplyautomatic.module.time.TimeModule
 
 object ModuleFactory {
     fun createModule(routine: Routine, condition: Boolean, context: Context) {
-        val type = if (condition) routine.conditionType else routine.actionType
-        when (type) {
+        when (if (condition) routine.conditionType else routine.actionType) {
             ModuleType.NOTIFY -> NotifyModule(routine.id, context)
             ModuleType.TIME -> TimeModule(routine.id, context)
         }

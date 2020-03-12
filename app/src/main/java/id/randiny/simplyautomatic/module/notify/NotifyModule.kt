@@ -15,8 +15,8 @@ class NotifyModule(routineId: Int, context: Context) :
     private lateinit var context: Context
 
     companion object {
-        private val NOTIF_CHANNEL_ID = "notif"
-        private val NOTIF_CHANNEL_NAME = "Notification module"
+        private const val NOTIF_CHANNEL_ID = "notif"
+        private const val NOTIF_CHANNEL_NAME = "Notification module"
     }
 
     override fun init(context: Context) {

@@ -14,11 +14,11 @@ import id.randiny.simplyautomatic.ui.ModuleListAdapter
 class PickerActivity : AppCompatActivity() {
 
     companion object {
-        val MODULE_IS_ACTION_EXTRA = "is_action"
-        val RETURN_PICKED_MODULE_EXTRA = "picked"
-        val RETURN_PICKED_MODULE_CONFIG = "picked_config"
+        const val MODULE_IS_ACTION_EXTRA = "is_action"
+        const val RETURN_PICKED_MODULE_EXTRA = "picked"
+        const val RETURN_PICKED_MODULE_CONFIG = "picked_config"
 
-        val GET_CONFIGURATION_REQUEST_CODE = 1
+        const val GET_CONFIGURATION_REQUEST_CODE = 1
     }
 
     private var selectedModule: ModuleType? = null

@@ -7,23 +7,23 @@ enum class ModuleType {
     companion object {
         fun valueOf(value: Int) = values().find { it.ordinal == value }
         fun getName(value: ModuleType): String {
-            when (value) {
-                TIME -> return "Time"
-                NOTIFY -> return "Notification"
+            return when (value) {
+                TIME -> "Time"
+                NOTIFY -> "Notification"
             }
         }
 
         fun getBehaviourType(value: ModuleType): ModuleBehaviourType {
-            when (value) {
-                TIME -> return ModuleBehaviourType.TRIGGER
-                NOTIFY -> return ModuleBehaviourType.ACTION
+            return when (value) {
+                TIME -> ModuleBehaviourType.TRIGGER
+                NOTIFY -> ModuleBehaviourType.ACTION
             }
         }
 
         fun getDescription(value: ModuleType): String {
-            when (value) {
-                TIME -> return "Set time for oneshot blablabla"
-                NOTIFY -> return "SHow notification blbblblb"
+            return when (value) {
+                TIME -> "Set time for oneshot blablabla"
+                NOTIFY -> "SHow notification blbblblb"
             }
         }
     }
