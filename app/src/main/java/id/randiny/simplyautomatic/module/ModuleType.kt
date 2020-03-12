@@ -2,7 +2,8 @@ package id.randiny.simplyautomatic.module
 
 enum class ModuleType {
     TIME,
-    NOTIFY;
+    NOTIFY,
+    SENSOR;
 
     companion object {
         fun valueOf(value: Int) = values().find { it.ordinal == value }
@@ -10,6 +11,7 @@ enum class ModuleType {
             return when (value) {
                 TIME -> "Time"
                 NOTIFY -> "Notification"
+                SENSOR -> "Sensor"
             }
         }
 
@@ -17,6 +19,7 @@ enum class ModuleType {
             return when (value) {
                 TIME -> ModuleBehaviourType.TRIGGER
                 NOTIFY -> ModuleBehaviourType.ACTION
+                SENSOR -> ModuleBehaviourType.TRIGGER
             }
         }
 
@@ -24,6 +27,7 @@ enum class ModuleType {
             return when (value) {
                 TIME -> "Set time for oneshot blablabla"
                 NOTIFY -> "SHow notification blbblblb"
+                SENSOR -> "Use your amazing sensor so waw"
             }
         }
     }

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import id.randiny.simplyautomatic.data.Routine
 import id.randiny.simplyautomatic.module.notify.NotifyModule
+import id.randiny.simplyautomatic.module.sensor.SensorModule
 import id.randiny.simplyautomatic.module.time.TimeModule
 
 object ModuleFactory {
@@ -12,6 +13,7 @@ object ModuleFactory {
         return when (if (condition) routine.conditionType else routine.actionType) {
             ModuleType.NOTIFY -> NotifyModule(routine.id, param, context)
             ModuleType.TIME -> TimeModule(routine.id, param, context)
+            ModuleType.SENSOR -> SensorModule(routine.id, param, context)
         }
     }
 
@@ -19,6 +21,7 @@ object ModuleFactory {
         when (type) {
             ModuleType.TIME -> TODO()
             ModuleType.NOTIFY -> TODO()
+            ModuleType.SENSOR -> TODO()
         }
     }
 }
