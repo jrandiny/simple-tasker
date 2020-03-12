@@ -1,6 +1,7 @@
 package id.randiny.simplyautomatic.ui
 
 import android.content.DialogInterface
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.randiny.simplyautomatic.R
@@ -41,7 +43,27 @@ class RoutineListFragment : Fragment() {
 
         val listRecycler = root.findViewById<RecyclerView>(R.id.list_item_view)
 
-        val lm = LinearLayoutManager(activity)
+        val orientation = resources.configuration.orientation
+        val lm: RecyclerView.LayoutManager
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            lm = GridLayoutManager(activity, 2)
+            listRecycler.addItemDecoration(
+                DividerItemDecoration(
+                    activity,
+                    DividerItemDecoration.HORIZONTAL
+                )
+            )
+            listRecycler.addItemDecoration(
+                DividerItemDecoration(
+                    activity,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        } else {
+            lm = LinearLayoutManager(activity)
+            listRecycler.addItemDecoration(DividerItemDecoration(activity, lm.orientation))
+        }
+
         val adapter = RoutineListAdapter()
         adapter.toggleCallback = routineListViewModel::toggleActivation
         adapter.deleteCallback = { id: Int ->
@@ -58,7 +80,6 @@ class RoutineListFragment : Fragment() {
 
         listRecycler.layoutManager = lm
         listRecycler.adapter = adapter
-        listRecycler.addItemDecoration(DividerItemDecoration(activity, lm.orientation))
 
         if (activeList != null && activeList) {
             routineListViewModel.activeList.observe(viewLifecycleOwner, Observer { routines ->
