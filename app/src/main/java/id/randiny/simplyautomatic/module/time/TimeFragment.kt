@@ -21,7 +21,9 @@ class TimeFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_time, container, false)
+        val root = inflater.inflate(R.layout.fragment_time, container, false)
+        root.findViewById<RadioGroup>(R.id.rg).setOnCheckedChangeListener(this)
+        return root
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
@@ -43,7 +45,7 @@ class TimeFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
                 val dayPicker = view!!.findViewById<TextView>(R.id.day_picker)
                 dayPicker.visibility = View.GONE
                 val text = view!!.findViewById<TextView>(R.id.textView)
-                text1.visibility = View.VISIBLE
+                text.visibility = View.VISIBLE
                 val datePicker = view!!.findViewById<TextView>(R.id.datePicker)
                 datePicker.visibility = View.VISIBLE
             }

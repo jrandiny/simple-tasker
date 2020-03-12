@@ -37,23 +37,22 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:id="@+id/rg">
 
                 <RadioButton
                     android:id="@+id/radioButton5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Oneshot"
-                    tools:ignore="HardcodedText,OnClick"
-                    android:onClick="radio_button_click"/>
+                    tools:ignore="HardcodedText,OnClick"/>
 
                 <RadioButton
                     android:id="@+id/radioButton6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Repeating"
-                    tools:ignore="HardcodedText,OnClick"
-                    android:onClick="radio_button_click"/>
+                    tools:ignore="HardcodedText,OnClick"/>
             </RadioGroup>
 
             <TextView
