@@ -41,16 +41,28 @@
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Accelerometer"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="Accelerometer"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="Magnet sensor"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/textView2"
@@ -63,25 +75,17 @@
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
-        <EditText
-            android:id="@+id/editText"
+        <SeekBar
+            android:id="@+id/seekBar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:ems="10"
-            android:importantForAutofill="no"
-            android:inputType="numberDecimal" />
+            android:max="5"
+            android:progress="2" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="30dp"
-            android:text="Submit"
-            tools:ignore="HardcodedText" />
     </LinearLayout>
 
 </FrameLayout>

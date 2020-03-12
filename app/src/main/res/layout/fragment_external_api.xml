@@ -5,34 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".module.externalAPI.ExternalAPIFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:orientation="vertical" >
 
-            <LinearLayout
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/todo"
-                    android:padding="@dimen/appbar_padding"
-                    android:src="@drawable/abc_vector_test"
-                    tools:ignore="PrivateResource" />
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
 
                 <TextView
                     android:id="@+id/title"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:minHeight="?actionBarSize"
@@ -41,59 +30,93 @@
                     android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
                     tools:ignore="HardcodedText" />
-            </LinearLayout>
 
 
-        </com.google.android.material.appbar.AppBarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Type :"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp" >
-
-            <RadioButton
-                android:id="@+id/radioButton"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
-                android:text="Weather"
-                android:textSize="14sp"
+                android:text="Username :"
+                android:textSize="20sp"
                 tools:ignore="HardcodedText" />
 
-            <RadioButton
-                android:id="@+id/radioButton2"
+            <EditText
+                android:id="@+id/editText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
-                android:text="News"
-                tools:ignore="HardcodedText" />
-        </RadioGroup>
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="30dp"
-            android:text="Submit"
-            tools:ignore="HardcodedText" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:text="Password :"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:text="IP Address :"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Toggle on"
+                    tools:ignore="HardcodedText" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Toggle off"
+                    tools:ignore="HardcodedText" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
