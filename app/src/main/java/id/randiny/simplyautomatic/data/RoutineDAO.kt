@@ -14,6 +14,9 @@ interface RoutineDAO {
     @Query("SELECT * FROM Routine WHERE active = 0")
     fun getAllInactive(): LiveData<List<Routine>>
 
+    @Query("SELECT * FROM Routine WHERE id=:id")
+    fun getById(id: Int): LiveData<Routine>
+
     @Query("UPDATE Routine SET active = NOT active WHERE id = :id")
     suspend fun toggleActivation(id: Int)
 

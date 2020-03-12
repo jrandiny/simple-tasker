@@ -1,5 +1,7 @@
 package id.randiny.simplyautomatic
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.activity.viewModels
@@ -24,6 +26,9 @@ class CreateActivity : AppCompatActivity() {
     private lateinit var nameEditText: EditText
 
     private val routineViewModel: RoutineViewModel by viewModels()
+
+    private val GET_CONDITION_REQUEST_CODE = 0
+    private val GET_ACTION_REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,27 +61,53 @@ class CreateActivity : AppCompatActivity() {
             conditionButton.text = it.name
         })
 
-        conditionButton.setOnClickListener {
-            val condition = ModuleConfig("nama kondisi", ModuleType.API, mapOf())
-            routineViewModel.setCondition(condition)
-        }
-
         routineViewModel.getAction().observe(this, Observer {
             actionButton.text = it.name
 
         })
 
-        actionButton.setOnClickListener {
-            val action = ModuleConfig("name aksi", ModuleType.TIME, mapOf())
-            routineViewModel.setAction(action)
-        }
-
         routineViewModel.validConfig.observe(this, Observer {
             createButton.isEnabled = it
         })
 
+        conditionButton.setOnClickListener {
+            val intent = Intent(this, PickerActivity::class.java)
+            intent.putExtra(PickerActivity.MODULE_IS_ACTION_EXTRA, false)
+            startActivityForResult(intent, GET_CONDITION_REQUEST_CODE)
+
+        }
+
+        actionButton.setOnClickListener {
+            val intent = Intent(this, PickerActivity::class.java)
+            intent.putExtra(PickerActivity.MODULE_IS_ACTION_EXTRA, true)
+            startActivityForResult(intent, GET_ACTION_REQUEST_CODE)
+//            val action = ModuleConfig("name aksi", ModuleType.NOTIFY, mapOf())
+//            routineViewModel.setAction(action)
+        }
+
         nameEditText.addTextChangedListener {
             routineViewModel.setName(it.toString())
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        if (requestCode == GET_CONDITION_REQUEST_CODE || requestCode == GET_ACTION_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val type = data!!.getSerializableExtra(PickerActivity.PICKED_MODULE_EXTRA)
+                if (type != null) {
+                    val moduleType = type as ModuleType
+                    if (requestCode == GET_CONDITION_REQUEST_CODE) {
+                        val condition = ModuleConfig("nama kondisi", moduleType, mapOf())
+                        routineViewModel.setCondition(condition)
+                    } else {
+                        val action = ModuleConfig("nama aksi", moduleType, mapOf())
+                        routineViewModel.setAction(action)
+                    }
+                }
+            }
         }
     }
 

@@ -28,4 +28,7 @@
     <string name="create_card_select_action">Select Action</string>
     <string name="create_card_name">Name (max 30 characters)</string>
     <string name="create_card_name_hint">Enter routine name</string>
+
+    <!-- Picker Activity -->
+    <string name="title_activity_picker">Pick Module</string>
 </resources>

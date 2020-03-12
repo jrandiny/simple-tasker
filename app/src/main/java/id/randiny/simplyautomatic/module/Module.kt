@@ -1,19 +1,30 @@
 package id.randiny.simplyautomatic.module
 
-import androidx.fragment.app.Fragment
+import android.content.Context
+import androidx.lifecycle.LiveData
+import id.randiny.simplyautomatic.data.MainDatabase
+import id.randiny.simplyautomatic.data.Routine
 
-interface Module {
+abstract class Module(
+    private val routineId: Int,
+    private val context: Context
+) {
 
-    val name: String
-    val behaviourType: ModuleBehaviourType
-    val configId: Int
+    private val mainDatabase =
+        MainDatabase.getDatabase(
+            context
+        )
+    private val routine: LiveData<Routine> = mainDatabase.routineDAO().getById(routineId)
 
-    fun init(configId: Int)
+    abstract fun init(context: Context)
 
-    fun getConfigurator(vm: ConfiguratorViewModel): Fragment
+    open fun poll(): Boolean {
+        return false
+    }
 
-    fun poll(): Boolean
-    fun action()
-    fun setupListener(action: Module)
-    fun destroyListener()
+    open fun action() {}
+
+    open fun setupListener(action: Module) {}
+
+    open fun destroyListener() {}
 }
