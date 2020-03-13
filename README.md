@@ -44,4 +44,4 @@ Untuk memberikan tampilan dari day picker.
 
 ## Screenshot :
 - homepage
-![homepage][screenshot/home.jpg]
+![homepage](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/home.jpg)
