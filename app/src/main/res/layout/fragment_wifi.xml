@@ -1,54 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wifi_radio_group"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".module.wifi.WifiFragment">
 
-    <LinearLayout
+    <RadioButton
+        android:id="@+id/wifi_radio_on"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="@string/module_wifi_radio_on" />
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+    <RadioButton
+        android:id="@+id/radioOff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/module_wifi_radio_off" />
+</RadioGroup>
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="?actionBarSize"
-                android:padding="@dimen/appbar_padding"
-                android:text="Wifi"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-                tools:ignore="HardcodedText" />
-
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Turn on wifi"
-                tools:ignore="HardcodedText" />
-
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Turn off wifi"
-                tools:ignore="HardcodedText" />
-        </RadioGroup>
-
-    </LinearLayout>
-
-</FrameLayout>

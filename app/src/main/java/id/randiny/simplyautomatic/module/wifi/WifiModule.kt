@@ -15,6 +15,8 @@ class WifiModule(
 
     companion object {
         private const val LOG_TAG = "My/WifiModule"
+
+        const val PARAM_TOGGLE = "toggle_to"
     }
 
     private lateinit var wifiManager: WifiManager

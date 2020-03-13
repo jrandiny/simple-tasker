@@ -36,4 +36,6 @@
     <string name="title_activity_configurator">Configure Module</string>
     <string name="configurator_confirm">Configure Module</string>
     <string name="todo">todo</string>
+    <string name="module_wifi_radio_on">Turn on wifi</string>
+    <string name="module_wifi_radio_off">Turn off wifi</string>
 </resources>

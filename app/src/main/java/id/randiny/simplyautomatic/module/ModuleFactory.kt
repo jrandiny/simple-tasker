@@ -1,12 +1,12 @@
 package id.randiny.simplyautomatic.module
 
 import android.content.Context
-import androidx.fragment.app.Fragment
 import id.randiny.simplyautomatic.data.Routine
 import id.randiny.simplyautomatic.module.notify.NotifyModule
 import id.randiny.simplyautomatic.module.sensor.SensorModule
 import id.randiny.simplyautomatic.module.sonoff.SonoffModule
 import id.randiny.simplyautomatic.module.time.TimeModule
+import id.randiny.simplyautomatic.module.wifi.WifiFragment
 import id.randiny.simplyautomatic.module.wifi.WifiModule
 
 object ModuleFactory {
@@ -21,13 +21,13 @@ object ModuleFactory {
         }
     }
 
-    fun createConfigurator(type: ModuleType): Fragment {
-        when (type) {
-            ModuleType.TIME -> TODO()
-            ModuleType.NOTIFY -> TODO()
-            ModuleType.SENSOR -> TODO()
-            ModuleType.WIFI -> TODO()
-            ModuleType.SONOFF -> TODO()
+    fun createConfigurator(type: ModuleType): ConfiguratorFragment {
+        return when (type) {
+            ModuleType.TIME -> WifiFragment()
+            ModuleType.NOTIFY -> WifiFragment()
+            ModuleType.SENSOR -> WifiFragment()
+            ModuleType.WIFI -> WifiFragment()
+            ModuleType.SONOFF -> WifiFragment()
         }
     }
 }
