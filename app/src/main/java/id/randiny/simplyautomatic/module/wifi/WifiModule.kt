@@ -28,8 +28,13 @@ class WifiModule(
             context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-            @Suppress("DEPRECATION")
-            wifiManager.isWifiEnabled = !wifiManager.isWifiEnabled
+            val onOff = param.get(PARAM_TOGGLE)
+
+            onOff?.let {
+                val toggleState = onOff == "1"
+                @Suppress("DEPRECATION")
+                wifiManager.isWifiEnabled = toggleState
+            }
         } else {
             Log.e(LOG_TAG, "API not supported")
         }

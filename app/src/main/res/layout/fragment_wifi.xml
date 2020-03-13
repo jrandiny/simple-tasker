@@ -14,7 +14,7 @@
         android:text="@string/module_wifi_radio_on" />
 
     <RadioButton
-        android:id="@+id/radioOff"
+        android:id="@+id/wifi_radio_off"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/module_wifi_radio_off" />

@@ -34,7 +34,7 @@ class WifiFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
         if (checkedId == R.id.wifi_radio_on) {
             wifiStatus = true
-        } else if (checkedId == R.id.wifi_radio_on) {
+        } else if (checkedId == R.id.wifi_radio_off) {
             wifiStatus = false
         }
     }
