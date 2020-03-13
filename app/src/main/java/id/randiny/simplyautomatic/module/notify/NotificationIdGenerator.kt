@@ -5,9 +5,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object NotificationIdGenerator {
-    fun generateId(): Int {
+    fun generateId(identifier: Int): Int {
         val dateFormatter: DateFormat = SimpleDateFormat("hhmmss", Locale.getDefault())
         val today = Date()
-        return dateFormatter.format(today).toInt()
+        return dateFormatter.format(today).toInt() + identifier * 1000000
     }
 }

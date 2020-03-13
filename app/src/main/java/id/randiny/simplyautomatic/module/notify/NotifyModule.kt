@@ -44,8 +44,8 @@ class NotifyModule(
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
-        val notificationId = NotificationIdGenerator.generateId()
-        Log.d(LOG_TAG, "Creating notif with id $notificationId")
-        notificationManager.notify(notificationId + identifier * 1000000, notification)
+        val notificationId = NotificationIdGenerator.generateId(identifier)
+        Log.d(LOG_TAG, "Creating notification with id $notificationId")
+        notificationManager.notify(notificationId, notification)
     }
 }
