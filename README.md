@@ -43,3 +43,5 @@ Untuk mengirim request ke External API.
 Untuk memberikan tampilan dari day picker.
 
 ## Screenshot :
+- homepage
+![homepage][/screenshot/home.jpg]
