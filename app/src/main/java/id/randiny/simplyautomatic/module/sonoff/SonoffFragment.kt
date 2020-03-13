@@ -28,9 +28,9 @@ class SonoffFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListene
     ): View? {
         Log.d(LOG_TAG, "Init Sonoff configurator fragment")
         val root = inflater.inflate(R.layout.fragment_sonoff, container, false)
-        val username = root.findViewById<EditText>(R.id.username)
-        val password = root.findViewById<EditText>(R.id.password)
-        val ipAddress = root.findViewById<EditText>(R.id.ipAddress)
+        username = root.findViewById<EditText>(R.id.username)
+        password = root.findViewById<EditText>(R.id.password)
+        ipAddress = root.findViewById<EditText>(R.id.ipAddress)
         username.addTextChangedListener {
             update()
         }
@@ -40,7 +40,7 @@ class SonoffFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListene
         ipAddress.addTextChangedListener {
             update()
         }
-        val radioGroup = root.findViewById<RadioGroup>(R.id.wifi_radio_group)
+        val radioGroup = root.findViewById<RadioGroup>(R.id.sonoff_radio_group)
         radioGroup.setOnCheckedChangeListener(this)
         radioGroup.check(R.id.toggleRadioOn)
 

@@ -42,10 +42,6 @@ class SonoffModule(
                 } else {
                     "Power OFF"
                 }
-                val params = HashMap<String,String>()
-                params["user"] = username.toString()
-                params["password"] = password.toString()
-                params["cmnd"] = cmnd
 
                 val stringRequest = object : StringRequest(Request.Method.GET, ipAddress,
                     Response.Listener<String> {
@@ -55,6 +51,10 @@ class SonoffModule(
                         Log.e(LOG_TAG, it.toString())
                     })  {
                     override fun getParams(): MutableMap<String,String> {
+                        val params = HashMap<String,String>()
+                        params["user"] = username.toString()
+                        params["password"] = password.toString()
+                        params["cmnd"] = cmnd
                         return params
                     }
                 }
