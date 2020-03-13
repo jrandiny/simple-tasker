@@ -11,15 +11,27 @@ import id.randiny.simplyautomatic.module.Module
 
 
 class TimeModule(
-    private val identifier: Int,
+    identifier: Int,
     private val param: Map<String, String>,
-    private val context: Context
+    context: Context
 ) :
     Module(identifier, param, context) {
 
     private var alarmIntent: PendingIntent? = null
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     private lateinit var receiver: BroadcastReceiver
+
+    companion object {
+        private const val LOG_TAG = "My/TimeModule"
+
+        const val PARAM_TIMESTATUS = "toggle_to"
+        const val PARAM_DAYS = ""
+        const val PARAM_DATE = ""
+        const val PARAM_TIME = ""
+        private const val LOG_TAG = "My/TimeModule"
+        private const val ACTION_STRING = "id.randiny.simple-tasker.action.time"
+        private const val IDENTIFIER_EXTRA = "extra_id"
+    }
 
     private class AlarmReceiver(private val action: Module) : BroadcastReceiver() {
         override fun onReceive(
@@ -30,12 +42,6 @@ class TimeModule(
             Log.d(LOG_TAG, "Time callback of id $id called")
             action.action()
         }
-    }
-
-    companion object {
-        private const val LOG_TAG = "My/TimeModule"
-        private const val ACTION_STRING = "id.randiny.simple-tasker.action.time"
-        private const val IDENTIFIER_EXTRA = "extra_id"
     }
 
     override fun setupListener(action: Module) {
@@ -64,5 +70,8 @@ class TimeModule(
         context.unregisterReceiver(receiver)
     }
 
+    override fun action() {
+        Log.d(LOG_TAG, "Triggering time module with param $param")
 
+    }
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".module.sonoff.SonoffFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="Username :"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="Password :"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="IP Address :"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/ipAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/toggleRadioOn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/module_sonoff_toggle_on" />
+
+            <RadioButton
+                android:id="@+id/toggleRadioOff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/module_sonoff_toggle_off"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+</ScrollView>
