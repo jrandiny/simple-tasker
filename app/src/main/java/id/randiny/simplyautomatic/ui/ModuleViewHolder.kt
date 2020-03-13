@@ -9,7 +9,7 @@ import id.randiny.simplyautomatic.module.ModuleType
 
 class ModuleViewHolder(
     inflater: LayoutInflater,
-    parent: ViewGroup,
+    private val parent: ViewGroup,
     private val listener: (ModuleType) -> Unit
 ) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.picker_module_item, parent, false)) {
@@ -19,8 +19,8 @@ class ModuleViewHolder(
 
 
     fun bind(moduleType: ModuleType) {
-        name.text = ModuleType.getName(moduleType)
-        description.text = ModuleType.getDescription(moduleType)
+        name.text = ModuleType.getName(parent.context, moduleType)
+        description.text = ModuleType.getDescription(parent.context, moduleType)
 
         itemView.setOnClickListener {
             listener(moduleType)

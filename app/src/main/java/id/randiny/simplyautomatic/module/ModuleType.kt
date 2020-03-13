@@ -1,5 +1,8 @@
 package id.randiny.simplyautomatic.module
 
+import android.content.Context
+import id.randiny.simplyautomatic.R
+
 enum class ModuleType {
     TIME,
     NOTIFY,
@@ -9,14 +12,14 @@ enum class ModuleType {
 
     companion object {
         fun valueOf(value: Int) = values().find { it.ordinal == value }
-        fun getName(value: ModuleType): String {
+        fun getName(context: Context, value: ModuleType): String {
             return when (value) {
-                TIME -> "Time"
-                NOTIFY -> "Notification"
-                SENSOR -> "Sensor"
-                WIFI -> "Wifi"
-                SONOFF -> "Sonoff"
-            }
+                TIME -> context.getText(R.string.module_time_picker_name)
+                NOTIFY -> context.getText(R.string.module_notify_picker_name)
+                SENSOR -> context.getText(R.string.module_sensor_picker_name)
+                WIFI -> context.getText(R.string.module_wifi_picker_name)
+                SONOFF -> context.getText(R.string.module_sonoff_picker_name)
+            }.toString()
         }
 
         fun getBehaviourType(value: ModuleType): ModuleBehaviourType {
@@ -29,14 +32,14 @@ enum class ModuleType {
             }
         }
 
-        fun getDescription(value: ModuleType): String {
+        fun getDescription(context: Context, value: ModuleType): String {
             return when (value) {
-                TIME -> "Set time for oneshot blablabla"
-                NOTIFY -> "SHow notification blbblblb"
-                SENSOR -> "Use your amazing sensor so waw"
-                WIFI -> "Toggle your wifi"
-                SONOFF -> "Toggle sonoff smart switch"
-            }
+                TIME -> context.getText(R.string.module_time_picker_description)
+                NOTIFY -> context.getText(R.string.module_notify_picker_description)
+                SENSOR -> context.getText(R.string.module_sensor_picker_description)
+                WIFI -> context.getText(R.string.module_wifi_picker_description)
+                SONOFF -> context.getText(R.string.module_sonoff_picker_description)
+            }.toString()
         }
     }
 }

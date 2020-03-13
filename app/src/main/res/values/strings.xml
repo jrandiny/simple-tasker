@@ -42,6 +42,9 @@
     <string name="module_wifi_radio_off">Turn off wifi</string>
     <string name="module_wifi_description_on">Turn on wifi</string>
     <string name="module_wifi_description_off">Turn off wifi</string>
+    <string name="module_wifi_picker_name">Wifi</string>
+    <string name="module_wifi_picker_description">Manipulate wifi status (on/off)</string>
+
 
     <!-- Notification module -->
     <string name="module_notify_title_field">Title</string>
@@ -49,6 +52,8 @@
     <string name="module_notify_title_hint">Enter notification title here</string>
     <string name="module_notify_content_hint">Enter notification content here</string>
     <string name="module_notify_description">Notify %1$s</string>
+    <string name="module_notify_picker_name">Notification</string>
+    <string name="module_notify_picker_description">Trigger notification with specific title and content</string>
 
     <!-- Sensor module -->
     <string name="module_sensor_type">Sensor type</string>
@@ -61,6 +66,16 @@
     <string name="module_sensor_type_accelerometer_y">Accelerometer Y</string>
     <string name="module_sensor_type_accelerometer_z">Accelerometer Z</string>
     <string name="module_sensor_description">Sensor %1$s %2$s %3$s</string>
+    <string name="module_sensor_picker_name">Sensor</string>
+    <string name="module_sensor_picker_description">Use sensor to trigger with specified threshold</string>
+
+    <!-- Time module -->
+    <string name="module_time_picker_name">Time</string>
+    <string name="module_time_picker_description">Trigger at specific time and/or interval</string>
+
+    <!-- Sonoff module -->
+    <string name="module_sonoff_picker_name">Sonoff</string>
+    <string name="module_sonoff_picker_description">Set sonoff smart switch status (on/off)</string>
 
     <string-array name="operator_array">
         <item>&lt;</item>
