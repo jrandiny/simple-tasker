@@ -28,8 +28,6 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
     private lateinit var dateTextView: TextView
     private lateinit var timeTextView: TextView
 
-    private val calendar = Calendar.getInstance()
-
     companion object {
         private const val LOG_TAG = "My/TimeFragment"
     }
@@ -53,7 +51,7 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
 
         dayPicker.selectionMode = SingleSelectionMode.create()
         dayPicker.selectDay(MaterialDayPicker.Weekday.MONDAY)
-        datePicker.minDate = System.currentTimeMillis() - 1000;
+        datePicker.minDate = System.currentTimeMillis() - 1000
         timePicker.setIs24HourView(true)
 
         radioGroup.setOnCheckedChangeListener(this)
@@ -114,7 +112,7 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
     }
 
     private fun getDayString(): String {
-        if (dayPicker.selectedDays.size > 0) {
+        if (dayPicker.selectedDays.isNotEmpty()) {
             return dayPicker.selectedDays[0].toString()
         } else {
             return "none"

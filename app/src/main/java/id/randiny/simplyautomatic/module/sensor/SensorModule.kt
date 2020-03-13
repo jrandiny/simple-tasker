@@ -25,10 +25,6 @@ class SensorModule(
 
         const val PARAM_ENUM_THRESHOLD_LT = "LT"
         const val PARAM_ENUM_THRESHOLD_GT = "GT"
-
-        const val PARAM_ENUM_SENSOR_ACCELEROMETER = "accelerometer"
-        const val PARAM_ENUM_SENSOR_MAGNET = "magnet"
-
     }
 
     private lateinit var sensorManager: SensorManager

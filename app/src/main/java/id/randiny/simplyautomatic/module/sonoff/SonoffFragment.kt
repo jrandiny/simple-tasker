@@ -28,9 +28,9 @@ class SonoffFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListene
     ): View? {
         Log.d(LOG_TAG, "Init Sonoff configurator fragment")
         val root = inflater.inflate(R.layout.fragment_sonoff, container, false)
-        username = root.findViewById<EditText>(R.id.username)
-        password = root.findViewById<EditText>(R.id.password)
-        ipAddress = root.findViewById<EditText>(R.id.ipAddress)
+        username = root.findViewById(R.id.username)
+        password = root.findViewById(R.id.password)
+        ipAddress = root.findViewById(R.id.ipAddress)
         username.addTextChangedListener {
             update()
         }

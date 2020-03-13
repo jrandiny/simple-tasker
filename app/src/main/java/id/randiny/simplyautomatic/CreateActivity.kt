@@ -27,8 +27,10 @@ class CreateActivity : AppCompatActivity() {
 
     private val routineViewModel: RoutineViewModel by viewModels()
 
-    private val GET_CONDITION_REQUEST_CODE = 0
-    private val GET_ACTION_REQUEST_CODE = 1
+    companion object {
+        private const val GET_CONDITION_REQUEST_CODE = 0
+        private const val GET_ACTION_REQUEST_CODE = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
