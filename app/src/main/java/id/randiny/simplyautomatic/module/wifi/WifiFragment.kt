@@ -46,4 +46,12 @@ class WifiFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
             WifiModule.PARAM_TOGGLE to if (wifiStatus) "1" else "0"
         )
     }
+
+    override fun getDescription(): String {
+        if (wifiStatus) {
+            return getString(R.string.module_wifi_description_on)
+        } else {
+            return getString(R.string.module_wifi_description_off)
+        }
+    }
 }

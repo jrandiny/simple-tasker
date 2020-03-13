@@ -47,4 +47,8 @@ class NotifyFragment : ConfiguratorFragment() {
             NotifyModule.PARAM_NOTIFICATION_CONTENT to contentEditText.text.toString()
         )
     }
+
+    override fun getDescription(): String {
+        return getString(R.string.module_notify_description, titleEditText.text.toString())
+    }
 }

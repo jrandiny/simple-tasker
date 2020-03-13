@@ -98,6 +98,17 @@ class SensorFragment :
         )
     }
 
+    override fun getDescription(): String {
+        val operatorSymbol =
+            if (spinnerSelected == SensorModule.PARAM_ENUM_THRESHOLD_GT) ">" else "<"
+        return getString(
+            R.string.module_sensor_description,
+            radioSelected.toString(),
+            operatorSymbol,
+            editText.text.toString()
+        )
+    }
+
     override fun onResume() {
         super.onResume()
         val sensorType = SensorUtil.getSensorType(radioSelected)

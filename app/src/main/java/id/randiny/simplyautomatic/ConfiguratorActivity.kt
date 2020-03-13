@@ -15,6 +15,7 @@ class ConfiguratorActivity : AppCompatActivity() {
     companion object {
         const val MODULE_TO_CONFIGURE_EXTRA = "module_configure"
         const val RETURN_CONFIGURED_MODULE_PARAM = "configured_module"
+        const val RETURN_CONFIGURED_DESCRIPTION_PARAM = "configured_description"
 
         private const val FRAGMENT_TAG = "fragment_tag"
     }
@@ -51,6 +52,10 @@ class ConfiguratorActivity : AppCompatActivity() {
             val intent = Intent()
 
             intent.putExtra(RETURN_CONFIGURED_MODULE_PARAM, configuratorFragment.getParam())
+            intent.putExtra(
+                RETURN_CONFIGURED_DESCRIPTION_PARAM,
+                configuratorFragment.getDescription()
+            )
             setResult(Activity.RESULT_OK, intent)
             finish()
         }

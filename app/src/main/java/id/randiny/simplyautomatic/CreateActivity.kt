@@ -98,16 +98,18 @@ class CreateActivity : AppCompatActivity() {
                     val type = data.getSerializableExtra(PickerActivity.RETURN_PICKED_MODULE_EXTRA)
                     val parameter =
                         data.getSerializableExtra(PickerActivity.RETURN_PICKED_MODULE_CONFIG)
+                    val description =
+                        data.getStringExtra(PickerActivity.RETURN_PICKED_MODULE_DESCRIPTION)
 
-                    if (type != null && parameter != null) {
+                    if (type != null && parameter != null && description != null) {
                         val moduleType = type as ModuleType
                         val moduleParam = parameter as HashMap<String, String>
 
                         if (requestCode == GET_CONDITION_REQUEST_CODE) {
-                            val condition = ModuleConfig("nama kondisi", moduleType, moduleParam)
+                            val condition = ModuleConfig(description, moduleType, moduleParam)
                             routineViewModel.setCondition(condition)
                         } else {
-                            val action = ModuleConfig("nama aksi", moduleType, moduleParam)
+                            val action = ModuleConfig(description, moduleType, moduleParam)
                             routineViewModel.setAction(action)
                         }
                     }
