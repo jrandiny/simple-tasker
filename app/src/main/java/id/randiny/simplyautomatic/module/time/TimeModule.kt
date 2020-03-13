@@ -22,7 +22,7 @@ class TimeModule(
     private lateinit var receiver: BroadcastReceiver
 
     companion object {
-        const val PARAM_TIMESTATUS = "toggle_to"
+        const val PARAM_ALARM_TYPE = "toggle_to"
         const val PARAM_DAYS = ""
         const val PARAM_DATE = ""
         const val PARAM_TIME = ""

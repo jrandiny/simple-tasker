@@ -68,8 +68,9 @@
     <string name="module_notify_description">Notify %1$s</string>
     <string name="module_notify_picker_name">Notification</string>
     <string name="module_notify_picker_description">Trigger notification with specific title and content</string>
-    <string name="module_time_description_oneshot">Turn on Timer for oneshot mode</string>
-    <string name="module_time_description_repeating">Turn on Timer for repeating mode</string>
+    <string name="module_time_description_oneshot">Timer at %1$s %2$s</string>
+    <string name="module_time_description_repeating">Repeating timer at %1$s</string>
+    <string name="module_time_description_repeating_day">Repeating timer at %1$s %2$s</string>
 
     <!-- Sensor module -->
     <string name="module_sensor_type">Sensor type</string>

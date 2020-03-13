@@ -52,6 +52,8 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
         timeTextView = root.findViewById(R.id.time_textview)
 
         dayPicker.selectionMode = SingleSelectionMode.create()
+        dayPicker.selectDay(MaterialDayPicker.Weekday.MONDAY)
+        datePicker.minDate = System.currentTimeMillis() - 1000;
         timePicker.setIs24HourView(true)
 
         radioGroup.setOnCheckedChangeListener(this)
@@ -63,22 +65,35 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
 
     override fun getParam(): HashMap<String, String> {
         return hashMapOf(
-            TimeModule.PARAM_TIMESTATUS to if (isOneShot) "1" else "0",
-            TimeModule.PARAM_DAYS to "days",
-            TimeModule.PARAM_DATE to "date",
-            TimeModule.PARAM_TIME to "time"
+            TimeModule.PARAM_ALARM_TYPE to if (isOneShot) "1" else "0",
+            TimeModule.PARAM_DAYS to getDayString(),
+            TimeModule.PARAM_DATE to getDateString(),
+            TimeModule.PARAM_TIME to getTimeString()
         )
     }
 
     override fun getDescription(): String {
         if (isOneShot) {
-            return getString(R.string.module_time_description_oneshot)
+            return getString(
+                R.string.module_time_description_oneshot,
+                getDateString(),
+                getTimeString()
+            )
         } else {
-            return getString(R.string.module_time_description_repeating)
+            if (getDayString() == "none") {
+                return getString(R.string.module_time_description_repeating, getTimeString())
+            } else {
+                return getString(
+                    R.string.module_time_description_repeating_day,
+                    getDayString(),
+                    getTimeString()
+                )
+            }
         }
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+        Log.d(LOG_TAG, getTimeString())
         if (checkedId == R.id.oneshot_option) {
             dayTextView.visibility = View.GONE
             dayPicker.visibility = View.GONE
@@ -92,5 +107,21 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
             datePicker.visibility = View.GONE
             isOneShot = false
         }
+    }
+
+    private fun getDateString(): String {
+        return "${datePicker.dayOfMonth}-${datePicker.month + 1}-${datePicker.year}"
+    }
+
+    private fun getDayString(): String {
+        if (dayPicker.selectedDays.size > 0) {
+            return dayPicker.selectedDays[0].toString()
+        } else {
+            return "none"
+        }
+    }
+
+    private fun getTimeString(): String {
+        return "${timePicker.hour}:${timePicker.minute}"
     }
 }
