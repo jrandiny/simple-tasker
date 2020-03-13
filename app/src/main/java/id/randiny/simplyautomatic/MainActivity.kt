@@ -2,6 +2,7 @@ package id.randiny.simplyautomatic
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
@@ -31,6 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
             val intent = Intent(this, CreateActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Setup Help button
+        val help: ImageButton = findViewById(R.id.help_button)
+
+        help.setOnClickListener{
+            val intent = Intent(this, HelpActivity::class.java)
             startActivity(intent)
         }
 

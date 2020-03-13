@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HelpActivity"></activity>
         <activity
             android:name=".ConfiguratorActivity"
             android:label="@string/title_activity_configurator"
@@ -26,7 +27,6 @@
             android:name=".CreateActivity"
             android:label="@string/title_activity_create"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"

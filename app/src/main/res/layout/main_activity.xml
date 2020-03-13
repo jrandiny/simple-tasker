@@ -28,14 +28,14 @@
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
             <ImageButton
-                android:id="@+id/option_button"
+                android:id="@+id/help_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:background="@android:color/transparent"
-                android:padding="@dimen/appbar_padding"
                 android:contentDescription="@string/appbar_setting"
-                app:srcCompat="@drawable/ic_setting" />
+                android:padding="@dimen/appbar_padding"
+                app:srcCompat="@android:drawable/ic_dialog_info" />
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
