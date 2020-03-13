@@ -1,91 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".module.sensor.SensorFragment">
+
+    <TextView
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/module_sensor_type" />
+
+    <RadioGroup
+        android:id="@+id/sensor_type_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <RadioButton
+            android:id="@+id/radio_sensor_accelerometer_x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/module_sensor_type_accelerometer_x" />
+
+        <RadioButton
+            android:id="@+id/radio_sensor_accelerometer_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/module_sensor_type_accelerometer_y" />
+
+        <RadioButton
+            android:id="@+id/radio_sensor_accelerometer_z"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/module_sensor_type_accelerometer_z" />
+
+        <RadioButton
+            android:id="@+id/radio_sensor_magnet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/module_sensor_type_magnet" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/sensor_current_value"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/module_sensor_value"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+    <TextView
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/module_sensor_threshold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
+        <Spinner
+            android:id="@+id/operator_spinner"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            style="@style/Widget.AppCompat.Spinner.Underlined" />
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="?actionBarSize"
-                android:padding="@dimen/appbar_padding"
-                android:text="Sensor"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-                tools:ignore="HardcodedText" />
-
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/threshold_edit_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Type :"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/radioButton7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="Accelerometer"
-                tools:ignore="HardcodedText" />
-
-            <RadioButton
-                android:id="@+id/radioButton8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="Magnet sensor"
-                tools:ignore="HardcodedText" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Minimum value :"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:max="5"
-            android:progress="2" />
-
+            android:hint="@string/module_sensor_threshold_hint"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned" />
     </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

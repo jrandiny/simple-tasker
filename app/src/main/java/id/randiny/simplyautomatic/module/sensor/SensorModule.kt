@@ -18,10 +18,22 @@ class SensorModule(
 
     companion object {
         private const val LOG_TAG = "My/SensorModule"
+
+        const val PARAM_SENSOR_TYPE = "sensor_type"
+        const val PARAM_SENSOR_THRESHOLD = "sensor_threshold"
+        const val PARAM_SENSOR_THRESHOLD_OPERATOR = "sensor_operator"
+
+        const val PARAM_ENUM_THRESHOLD_LT = "LT"
+        const val PARAM_ENUM_THRESHOLD_GT = "GT"
+
+        const val PARAM_ENUM_SENSOR_ACCELEROMETER = "accelerometer"
+        const val PARAM_ENUM_SENSOR_MAGNET = "magnet"
+
     }
 
     private lateinit var sensorManager: SensorManager
     private lateinit var thresholdCheck: (event: SensorEvent) -> Boolean
+    private lateinit var valueExtractor: (event: SensorEvent) -> Float
     private lateinit var action: Module
 
     override fun setupListener(action: Module) {
@@ -29,13 +41,25 @@ class SensorModule(
 
         this.action = action
 
-        thresholdCheck = fun(event): Boolean {
-            return event.values[0] > 4
+        val threshold = param.get(PARAM_SENSOR_THRESHOLD)?.toInt() ?: 0
+
+        val sensorType = SensorUtil.SensorType.valueOf(param.get(PARAM_SENSOR_TYPE)!!)
+
+        valueExtractor = SensorUtil.getValueExtractor(sensorType)
+
+        if (param.get(PARAM_SENSOR_THRESHOLD) == PARAM_ENUM_THRESHOLD_GT) {
+            thresholdCheck = fun(event): Boolean {
+                return valueExtractor(event) > threshold
+            }
+        } else {
+            thresholdCheck = fun(event): Boolean {
+                return valueExtractor(event) < threshold
+            }
         }
 
         sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
-        sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)?.let {
+        sensorManager.getDefaultSensor(SensorUtil.getSensorType(sensorType))?.let {
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL)
         }
     }
@@ -45,7 +69,6 @@ class SensorModule(
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
-        TODO("Not yet implemented")
     }
 
     override fun onSensorChanged(event: SensorEvent) {

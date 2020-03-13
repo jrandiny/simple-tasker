@@ -4,6 +4,7 @@ import android.content.Context
 import id.randiny.simplyautomatic.data.Routine
 import id.randiny.simplyautomatic.module.notify.NotifyFragment
 import id.randiny.simplyautomatic.module.notify.NotifyModule
+import id.randiny.simplyautomatic.module.sensor.SensorFragment
 import id.randiny.simplyautomatic.module.sensor.SensorModule
 import id.randiny.simplyautomatic.module.sonoff.SonoffModule
 import id.randiny.simplyautomatic.module.time.TimeModule
@@ -26,7 +27,7 @@ object ModuleFactory {
         return when (type) {
             ModuleType.TIME -> WifiFragment()
             ModuleType.NOTIFY -> NotifyFragment()
-            ModuleType.SENSOR -> WifiFragment()
+            ModuleType.SENSOR -> SensorFragment()
             ModuleType.WIFI -> WifiFragment()
             ModuleType.SONOFF -> WifiFragment()
         }

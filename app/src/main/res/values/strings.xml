@@ -46,4 +46,20 @@
     <string name="module_notify_content_field">Content</string>
     <string name="module_notify_title_hint">Enter notification title here</string>
     <string name="module_notify_content_hint">Enter notification content here</string>
+
+    <!-- Sensor module -->
+    <string name="module_sensor_type">Sensor type</string>
+    <string name="module_sensor_threshold">Threshold</string>
+    <string name="module_sensor_value">Current value</string>
+    <string name="module_sensor_value_filled">Current value : %1$f</string>
+    <string name="module_sensor_threshold_hint">Threshold value</string>
+    <string name="module_sensor_type_magnet">Magnetometer</string>
+    <string name="module_sensor_type_accelerometer_x">Accelerometer X</string>
+    <string name="module_sensor_type_accelerometer_y">Accelerometer Y</string>
+    <string name="module_sensor_type_accelerometer_z">Accelerometer Z</string>
+
+    <string-array name="operator_array">
+        <item>&lt;</item>
+        <item>&gt;</item>
+    </string-array>
 </resources>
