@@ -36,6 +36,14 @@
     <string name="title_activity_configurator">Configure Module</string>
     <string name="configurator_confirm">Configure Module</string>
     <string name="todo">todo</string>
+
+    <!-- Wifi module -->
     <string name="module_wifi_radio_on">Turn on wifi</string>
     <string name="module_wifi_radio_off">Turn off wifi</string>
+
+    <!-- Notification module -->
+    <string name="module_notify_title_field">Title</string>
+    <string name="module_notify_content_field">Content</string>
+    <string name="module_notify_title_hint">Enter notification title here</string>
+    <string name="module_notify_content_hint">Enter notification content here</string>
 </resources>

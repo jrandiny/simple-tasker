@@ -2,6 +2,7 @@ package id.randiny.simplyautomatic.module
 
 import android.content.Context
 import id.randiny.simplyautomatic.data.Routine
+import id.randiny.simplyautomatic.module.notify.NotifyFragment
 import id.randiny.simplyautomatic.module.notify.NotifyModule
 import id.randiny.simplyautomatic.module.sensor.SensorModule
 import id.randiny.simplyautomatic.module.sonoff.SonoffModule
@@ -24,7 +25,7 @@ object ModuleFactory {
     fun createConfigurator(type: ModuleType): ConfiguratorFragment {
         return when (type) {
             ModuleType.TIME -> WifiFragment()
-            ModuleType.NOTIFY -> WifiFragment()
+            ModuleType.NOTIFY -> NotifyFragment()
             ModuleType.SENSOR -> WifiFragment()
             ModuleType.WIFI -> WifiFragment()
             ModuleType.SONOFF -> WifiFragment()

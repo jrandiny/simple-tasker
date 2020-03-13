@@ -21,6 +21,9 @@ class NotifyModule(
         private const val LOG_TAG = "My/NotifyModule"
         private const val NOTIF_CHANNEL_ID = "notification"
         private const val NOTIF_CHANNEL_NAME = "Notification module"
+
+        const val PARAM_NOTIFICATION_TITLE = "param_title"
+        const val PARAM_NOTIFICATION_CONTENT = "param_content"
     }
 
     override fun action() {
@@ -38,8 +41,8 @@ class NotifyModule(
         }
 
         val notification = NotificationCompat.Builder(context, NOTIF_CHANNEL_ID)
-            .setContentTitle("test")
-            .setContentText("test")
+            .setContentTitle(param.get(PARAM_NOTIFICATION_TITLE))
+            .setContentText(param.get(PARAM_NOTIFICATION_CONTENT))
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
