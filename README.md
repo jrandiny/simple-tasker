@@ -11,10 +11,10 @@ Terdapat 5 modul yang dibagi menjadi 2 kondisi dan 3 aksi.
 - Sensor
 Syarat yang dihasilkan dari kondisi lebih besar atau lebih kecil dari sensor. Ada 2 sensor dalam aplikasi, magnet dan akselerometer. Pengguna dapat memasukkan nilai threshold sesuai yang diinginkan. 
 - Timer
-Syarat yang dihasilkan dari kondisi batas waktu. Pengguna dapat menambahkan waktu yang kan menjadi syarat untuk dilewati jika aksi ingin terjadi.
+Syarat yang dihasilkan dari kondisi target waktu atau waktu berulang. Pengguna dapat mengatur waktu yang akan menjadi syarat untuk dilewati jika aksi ingin terjadi.
 #### Aksi :
-- External API
-Aksi yang mengirimkan sebuah request pada External API. External API nya merupakan smarthome sonoff. Membutuhkan masukan berupa username, password, dan ip address.
+- Sonoff
+Aksi yang mengirimkan sebuah request pada External API. External API nya merupakan smarthome sonoff smartswitch. Membutuhkan masukan berupa username, password, dan ip address.
 - Notify
 Aksi yang mengirimkan sebuah notification jika sebuah kondisi terpenuhi. Membutuhkan input judul dan isi notifikasi.
 - Wifi
@@ -22,19 +22,19 @@ Aksi yang mengubah status dari wifi smartphone pengguna. Pengguna dapat memilih 
 
 ## Library :
 - androidx.core
-Digunakan untuk memperbolehkan develop ke banyak versi API
+Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.activity
-Digunakan untuk memperbolehkan develop ke banyak versi API
+Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.appcompat
-Digunakan untuk memperbolehkan develop ke banyak versi API
+Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.constraintlayout
-Digunakan untuk memperbolehkan develop ke banyak versi API
+Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.fragment
-Digunakan untuk memperbolehkan develop ke banyak versi API
+Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.room
-Digunakan untuk pengaturan database.
+Digunakan untuk memudahkan akses basis data.
 - androidx.lifecycle
-Mengatur tindakan yang merupakan respons dari perubahan status siklus.
+Mengatur tindakan yang merupakan respons dari perubahan status siklus aplikasi agar aplikasi lebih reaktif.
 - com.google.code.gson
 Menyimpan map di database.
 - com.android.volley
@@ -44,7 +44,7 @@ Untuk memberikan tampilan dari day picker.
 
 ## Screenshot :
 - homepage 
-![homepage][https://github.com/jrandiny/simple-tasker/blob/master/screenshot/home.jpg]
+![homepage](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/home.jpg)
 - action list 
 ![action list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/action_picker.jpg)
 - notify 
