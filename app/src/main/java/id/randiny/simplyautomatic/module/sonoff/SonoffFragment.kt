@@ -12,11 +12,6 @@ import androidx.fragment.app.Fragment
 import id.randiny.simplyautomatic.R
 import id.randiny.simplyautomatic.module.ConfiguratorFragment
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ExternalAPIModule.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SonoffFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener {
 
     private var sonoffStatus: Boolean = true
@@ -62,6 +57,10 @@ class SonoffFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListene
             SonoffModule.PARAM_PASSWORD to password.text.toString(),
             SonoffModule.PARAM_IPADDRESS to ipAddress.text.toString()
         )
+    }
+
+    override fun getDescription(): String {
+        return getString(R.string.module_sonoff_description,if(sonoffStatus)"on" else "off", ipAddress.text.toString())
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {

@@ -55,6 +55,9 @@
     <!--  Sonoff module  -->
     <string name="module_sonoff_toggle_on">Toggle on</string>
     <string name="module_sonoff_toggle_off">Toggle off</string>
+    <string name="module_sonoff_description">Turn %1$s Sonoff at %2$s</string>
+    <string name="module_sonoff_picker_name">Sonoff</string>
+    <string name="module_sonoff_picker_description">Set sonoff smart switch status (on/off)</string>
 
     <!-- Time module-->
     <string name="module_time_module_oneshot">Oneshot</string>
@@ -65,6 +68,8 @@
     <string name="module_notify_description">Notify %1$s</string>
     <string name="module_notify_picker_name">Notification</string>
     <string name="module_notify_picker_description">Trigger notification with specific title and content</string>
+    <string name="module_time_description_oneshot">Turn on Timer for oneshot mode</string>
+    <string name="module_time_description_repeating">Turn on Timer for repeating mode</string>
 
     <!-- Sensor module -->
     <string name="module_sensor_type">Sensor type</string>
@@ -83,10 +88,6 @@
     <!-- Time module -->
     <string name="module_time_picker_name">Time</string>
     <string name="module_time_picker_description">Trigger at specific time and/or interval</string>
-
-    <!-- Sonoff module -->
-    <string name="module_sonoff_picker_name">Sonoff</string>
-    <string name="module_sonoff_picker_description">Set sonoff smart switch status (on/off)</string>
 
     <string-array name="operator_array">
         <item>&lt;</item>
