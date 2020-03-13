@@ -11,9 +11,9 @@ import id.randiny.simplyautomatic.module.Module
 
 
 class TimeModule(
-    identifier: Int,
+    private val identifier: Int,
     private val param: Map<String, String>,
-    context: Context
+    private val context: Context
 ) :
     Module(identifier, param, context) {
 
@@ -28,7 +28,7 @@ class TimeModule(
         const val PARAM_DAYS = ""
         const val PARAM_DATE = ""
         const val PARAM_TIME = ""
-        private const val LOG_TAG = "My/TimeModule"
+
         private const val ACTION_STRING = "id.randiny.simple-tasker.action.time"
         private const val IDENTIFIER_EXTRA = "extra_id"
     }
@@ -53,9 +53,16 @@ class TimeModule(
         intent.putExtra(IDENTIFIER_EXTRA, identifier)
         alarmIntent = PendingIntent.getBroadcast(context, identifier, intent, 0)
 
-        alarmManager.setExactAndAllowWhileIdle(
+//        alarmManager.setExactAndAllowWhileIdle(
+//            AlarmManager.RTC_WAKEUP,
+//            System.currentTimeMillis(),
+//            alarmIntent
+//        )
+
+        alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
             System.currentTimeMillis(),
+            60000,
             alarmIntent
         )
 

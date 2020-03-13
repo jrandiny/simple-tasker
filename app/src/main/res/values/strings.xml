@@ -64,7 +64,7 @@
     <string name="module_time_module_repeating">Repeating</string>
     <string name="module_time_module_time">Time :</string>
     <string name="module_time_module_date">Date :</string>
-    <string name="module_time_module_days">Days :</string>
+    <string name="module_time_module_days">Day :</string>
     <string name="module_notify_description">Notify %1$s</string>
     <string name="module_notify_picker_name">Notification</string>
     <string name="module_notify_picker_description">Trigger notification with specific title and content</string>

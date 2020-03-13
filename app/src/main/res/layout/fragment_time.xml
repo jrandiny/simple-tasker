@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,30 +13,30 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/radio_group">
+            android:id="@+id/time_radio_group">
 
             <RadioButton
-                android:id="@+id/oneshot"
+                android:id="@+id/oneshot_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/module_time_module_oneshot"/>
 
             <RadioButton
-                android:id="@+id/repeating"
+                android:id="@+id/repeating_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/module_time_module_repeating"/>
         </RadioGroup>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/day_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:text="@string/module_time_module_days"
-            android:textSize="20sp"
+            style="@style/TextAppearance.MaterialComponents.Body1"
             android:visibility="gone" />
 
         <ca.antonious.materialdaypicker.MaterialDayPicker
@@ -50,38 +49,38 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/date_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:text="@string/module_time_module_date"
-            android:textSize="20sp"
-            android:visibility="gone"/>
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:visibility="visible" />
 
         <DatePicker
-            android:id="@+id/datePicker"
+            android:id="@+id/date_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             android:theme="@style/AppTheme"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/time_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:text="@string/module_time_module_time"
-            android:textSize="20sp"/>
+            style="@style/TextAppearance.MaterialComponents.Body1" />
 
         <TimePicker
-            android:id="@+id/alarmTimePicker"
+            android:id="@+id/time_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

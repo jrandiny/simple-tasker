@@ -6,7 +6,9 @@ import id.randiny.simplyautomatic.module.notify.NotifyFragment
 import id.randiny.simplyautomatic.module.notify.NotifyModule
 import id.randiny.simplyautomatic.module.sensor.SensorFragment
 import id.randiny.simplyautomatic.module.sensor.SensorModule
+import id.randiny.simplyautomatic.module.sonoff.SonoffFragment
 import id.randiny.simplyautomatic.module.sonoff.SonoffModule
+import id.randiny.simplyautomatic.module.time.TimeFragment
 import id.randiny.simplyautomatic.module.time.TimeModule
 import id.randiny.simplyautomatic.module.wifi.WifiFragment
 import id.randiny.simplyautomatic.module.wifi.WifiModule
@@ -25,11 +27,11 @@ object ModuleFactory {
 
     fun createConfigurator(type: ModuleType): ConfiguratorFragment {
         return when (type) {
-            ModuleType.TIME -> WifiFragment()
+            ModuleType.TIME -> TimeFragment()
             ModuleType.NOTIFY -> NotifyFragment()
             ModuleType.SENSOR -> SensorFragment()
             ModuleType.WIFI -> WifiFragment()
-            ModuleType.SONOFF -> WifiFragment()
+            ModuleType.SONOFF -> SonoffFragment()
         }
     }
 }
