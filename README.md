@@ -47,12 +47,12 @@ Untuk memberikan tampilan dari day picker
 
 | Homepage                                                                               | Action list                                                                                        |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| ![homepage](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/home.jpg) | ![action list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/action_picker.jpg) |
+| ![homepage](screenshot/home.jpg) | ![action list](screenshot/action_picker.jpg) |
 
 
 | External API                                                                                       | Condition list                                                                                           |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| ![external API](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/external_api.jpg) | ![condition list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/condition_picker.jpg) |
+| ![external API](screenshot/external_api.jpg) | ![condition list](screenshot/condition_picker.jpg) |
 
 
 
@@ -60,24 +60,24 @@ Untuk memberikan tampilan dari day picker
 
 | Notify                                                                                 | Wifi                                                                               |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| ![notify](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/notify.jpg) | ![wifi](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/wifi.jpg) |
+| ![notify](screenshot/notify.jpg) | ![wifi](screenshot/wifi.jpg) |
 
 
 | Timer 1                                                                                     | Timer 2                                                                                       |
 | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| ![timer](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/time_oneshot.jpg) | ![timer](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/time_repeating.jpg) |
+| ![timer](screenshot/time_oneshot.jpg) | ![timer](screenshot/time_repeating.jpg) |
 
 
 
 | Sensor                                                                                 |
 | -------------------------------------------------------------------------------------- |
-| ![sensor](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/sensor.jpg) |
+| ![sensor](screenshot/sensor.jpg) |
 
 
 
 | Add Routine 1                                                                                    | Add Routine 2                                                                                      |
 | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| ![add routine](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/add_routine.jpg) | ![add routine](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/add_routine_2.jpg) |
+| ![add routine](screenshot/add_routine.jpg) | ![add routine](screenshot/add_routine_2.jpg) |
 
 
 
@@ -86,4 +86,4 @@ Untuk memberikan tampilan dari day picker
 
 | Active Tab                                                                                          | Inactive Tab                                                                                            |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ![active tab](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/active_tab_home.jpg) | ![inactive tab](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/inactive_tab_home.jpg) |
+| ![active tab](screenshot/active_tab_home.jpg) | ![inactive tab](screenshot/inactive_tab_home.jpg) |
