@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioGroup
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.Fragment
 import id.randiny.simplyautomatic.R
 import id.randiny.simplyautomatic.module.ConfiguratorFragment
 
@@ -60,7 +59,11 @@ class SonoffFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListene
     }
 
     override fun getDescription(): String {
-        return getString(R.string.module_sonoff_description,if(sonoffStatus)"on" else "off", ipAddress.text.toString())
+        return getString(
+            R.string.module_sonoff_description,
+            if (sonoffStatus) "on" else "off",
+            ipAddress.text.toString()
+        )
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
