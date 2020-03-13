@@ -65,7 +65,7 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
 
     override fun getParam(): HashMap<String, String> {
         return hashMapOf(
-            TimeModule.PARAM_ALARM_TYPE to if (isOneShot) "1" else "0",
+            TimeModule.PARAM_ALARM_IS_ONESHOT to if (isOneShot) "1" else "0",
             TimeModule.PARAM_DAYS to getDayString(),
             TimeModule.PARAM_DATE to getDateString(),
             TimeModule.PARAM_TIME to getTimeString()

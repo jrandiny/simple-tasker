@@ -7,7 +7,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.util.Log
+import ca.antonious.materialdaypicker.MaterialDayPicker
 import id.randiny.simplyautomatic.module.Module
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TimeModule(
@@ -22,10 +25,10 @@ class TimeModule(
     private lateinit var receiver: BroadcastReceiver
 
     companion object {
-        const val PARAM_ALARM_TYPE = "toggle_to"
-        const val PARAM_DAYS = ""
-        const val PARAM_DATE = ""
-        const val PARAM_TIME = ""
+        const val PARAM_ALARM_IS_ONESHOT = "param_type"
+        const val PARAM_DAYS = "param_day"
+        const val PARAM_DATE = "param_date"
+        const val PARAM_TIME = "param_time"
 
         private const val LOG_TAG = "My/TimeModule"
 
@@ -53,18 +56,80 @@ class TimeModule(
         intent.putExtra(IDENTIFIER_EXTRA, identifier)
         alarmIntent = PendingIntent.getBroadcast(context, identifier, intent, 0)
 
-//        alarmManager.setExactAndAllowWhileIdle(
-//            AlarmManager.RTC_WAKEUP,
-//            System.currentTimeMillis(),
-//            alarmIntent
-//        )
+        if (param.get(PARAM_ALARM_IS_ONESHOT) == "1") {
+            Log.d(LOG_TAG, "Is oneshot")
 
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis(),
-            60000,
-            alarmIntent
-        )
+            val dateText = param.get(PARAM_DATE)
+            val timeText = param.get(PARAM_TIME)
+
+            if (dateText != null && timeText != null) {
+                val formatter = SimpleDateFormat("dd-MM-yyyyHH:mm", Locale.getDefault())
+                val datetime = formatter.parse("$dateText$timeText")
+
+                if (datetime != null) {
+                    alarmManager.setExactAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        datetime.time,
+                        alarmIntent
+                    )
+                } else {
+                    Log.e(LOG_TAG, "Invalid datetime parsing")
+                }
+            } else {
+                Log.e(LOG_TAG, "Invalid param")
+            }
+        } else {
+            Log.d(LOG_TAG, "Is repeating")
+            val dayText = param.get(PARAM_DAYS)
+            val timeText = param.get(PARAM_TIME)
+
+            if (dayText != null && timeText != null) {
+                val formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
+                val datetime = formatter.parse("$timeText")
+
+                if (datetime != null) {
+                    val calendar = Calendar.getInstance()
+                    calendar.timeInMillis = System.currentTimeMillis()
+
+                    Log.d(LOG_TAG, "Set hour ${datetime.hours}:${datetime.minutes}")
+                    calendar.set(Calendar.HOUR_OF_DAY, datetime.hours)
+                    calendar.set(Calendar.MINUTE, datetime.minutes)
+
+                    var repeatMillis: Long = 0
+                    if (dayText != "none") {
+                        Log.d(LOG_TAG, "Repeat weekly")
+                        val dayOfWeek = MaterialDayPicker.Weekday.values()
+                            .indexOf(MaterialDayPicker.Weekday.valueOf(dayText))
+                        Log.d(LOG_TAG, "Day of week $dayOfWeek")
+                        repeatMillis = AlarmManager.INTERVAL_DAY * 7
+                        calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek + 1)
+                    } else {
+                        Log.d(LOG_TAG, "Repeat daily")
+                        repeatMillis = AlarmManager.INTERVAL_DAY
+                    }
+
+
+                    if (calendar.timeInMillis < System.currentTimeMillis()) {
+                        calendar.add(Calendar.MILLISECOND, repeatMillis.toInt())
+                    }
+
+                    val startMillis = calendar.timeInMillis
+                    Log.d(LOG_TAG, "Repeating start at $startMillis with interval $repeatMillis")
+                    alarmManager.setRepeating(
+                        AlarmManager.RTC_WAKEUP,
+                        startMillis,
+                        repeatMillis,
+                        alarmIntent
+                    )
+                } else {
+                    Log.e(LOG_TAG, "Invalid datetime parsing")
+                }
+
+            } else {
+                Log.e(LOG_TAG, "Invalid param")
+            }
+        }
+
 
         val filter = IntentFilter("$ACTION_STRING.$identifier")
         context.registerReceiver(receiver, filter)
@@ -79,6 +144,5 @@ class TimeModule(
 
     override fun action() {
         Log.d(LOG_TAG, "Triggering time module with param $param")
-
     }
 }
