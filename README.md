@@ -32,38 +32,58 @@ Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.fragment
 Digunakan untuk memudahkan develop ke banyak versi API
 - androidx.room
-Digunakan untuk memudahkan akses basis data.
+Digunakan untuk memudahkan akses basis data dan menyediakan fitur-fitur seperti DAO
 - androidx.lifecycle
-Mengatur tindakan yang merupakan respons dari perubahan status siklus aplikasi agar aplikasi lebih reaktif.
+Mengatur tindakan yang merupakan respons dari perubahan status siklus aplikasi agar aplikasi lebih reaktif. Di dalamnya termasuk LiveData dan ViewModel
 - com.google.code.gson
-Menyimpan map di database.
+Menyimpan map di database (sebagai library serialisasi dan deserialisasi)
 - com.android.volley
-Untuk mengirim request ke External API.
+Untuk mengirim request ke External API
 - materialDayPicker
-Untuk memberikan tampilan dari day picker.
+Untuk memberikan tampilan dari day picker
 
 ## Screenshot :
-- homepage 
-![homepage](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/home.jpg)
-- action list 
-![action list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/action_picker.jpg)
-- notify 
-![notify](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/notify.jpg)
-- wifi 
-![wifi](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/wifi.jpg)
-- external API 
-![external API](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/external_api.jpg)
-- condition list 
-![condition list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/condition_picker.jpg)
-- timer 
-![timer](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/time_oneshot.jpg)
-![timer](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/time_repeating.jpg)
-- sensor 
-![sensor](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/sensor.jpg)
-- add routine 
-![add routine](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/add_routine.jpg)
-![add routine](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/add_routine_2.jpg)
-- active tab 
-![active tab](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/active_tab_home.jpg)
-- inactive tab 
-![inactive tab](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/inactive_tab_home.jpg)
+
+
+| Homepage                                                                               | Action list                                                                                        |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| ![homepage](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/home.jpg) | ![action list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/action_picker.jpg) |
+
+
+| External API                                                                                       | Condition list                                                                                           |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| ![external API](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/external_api.jpg) | ![condition list](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/condition_picker.jpg) |
+
+
+
+
+
+| Notify                                                                                 | Wifi                                                                               |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| ![notify](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/notify.jpg) | ![wifi](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/wifi.jpg) |
+
+
+| Timer 1                                                                                     | Timer 2                                                                                       |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| ![timer](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/time_oneshot.jpg) | ![timer](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/time_repeating.jpg) |
+
+
+
+| Sensor                                                                                 |
+| -------------------------------------------------------------------------------------- |
+| ![sensor](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/sensor.jpg) |
+
+
+
+| Add Routine 1                                                                                    | Add Routine 2                                                                                      |
+| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| ![add routine](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/add_routine.jpg) | ![add routine](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/add_routine_2.jpg) |
+
+
+
+
+
+
+| Active Tab                                                                                          | Inactive Tab                                                                                            |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| ![active tab](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/active_tab_home.jpg) | ![inactive tab](https://github.com/jrandiny/simple-tasker/blob/master/screenshot/inactive_tab_home.jpg) |
