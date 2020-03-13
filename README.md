@@ -44,4 +44,4 @@ Untuk memberikan tampilan dari day picker.
 
 ## Screenshot :
 - homepage
-![homepage][simple-tasker/screenshot/home.jpg]
+![homepage][screenshot/home.jpg]
