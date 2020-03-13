@@ -22,8 +22,6 @@ class TimeModule(
     private lateinit var receiver: BroadcastReceiver
 
     companion object {
-        private const val LOG_TAG = "My/TimeModule"
-
         const val PARAM_TIMESTATUS = "toggle_to"
         const val PARAM_DAYS = ""
         const val PARAM_DATE = ""

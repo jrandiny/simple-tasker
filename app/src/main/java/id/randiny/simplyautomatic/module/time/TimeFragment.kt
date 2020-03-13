@@ -71,7 +71,11 @@ class TimeFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
     }
 
     override fun getDescription(): String {
-        return "asdas"
+        if (isOneShot) {
+            return getString(R.string.module_time_description_oneshot)
+        } else {
+            return getString(R.string.module_time_description_repeating)
+        }
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
