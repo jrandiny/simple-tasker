@@ -27,6 +27,8 @@ class TimeModule(
         const val PARAM_DATE = ""
         const val PARAM_TIME = ""
 
+        private const val LOG_TAG = "My/TimeModule"
+
         private const val ACTION_STRING = "id.randiny.simple-tasker.action.time"
         private const val IDENTIFIER_EXTRA = "extra_id"
     }
