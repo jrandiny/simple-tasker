@@ -28,6 +28,8 @@ class WifiFragment : ConfiguratorFragment(), RadioGroup.OnCheckedChangeListener 
         radioGroup.setOnCheckedChangeListener(this)
         radioGroup.check(R.id.wifi_radio_on)
 
+        validConfig.postValue(true)
+
         return root
     }
 
