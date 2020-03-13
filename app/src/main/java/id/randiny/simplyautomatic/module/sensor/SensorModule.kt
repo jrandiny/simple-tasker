@@ -37,7 +37,7 @@ class SensorModule(
 
         this.action = action
 
-        val threshold = param.get(PARAM_SENSOR_THRESHOLD)?.toInt() ?: 0
+        val threshold = param.get(PARAM_SENSOR_THRESHOLD)?.toDouble() ?: 0.0
 
         val sensorType = SensorUtil.SensorType.valueOf(param.get(PARAM_SENSOR_TYPE)!!)
 

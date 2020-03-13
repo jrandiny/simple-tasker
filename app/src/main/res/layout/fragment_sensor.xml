@@ -80,6 +80,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/module_sensor_threshold_hint"
             android:importantForAutofill="no"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned|numberDecimal" />
     </LinearLayout>
 </LinearLayout>
