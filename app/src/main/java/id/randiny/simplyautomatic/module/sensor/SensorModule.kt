@@ -47,7 +47,7 @@ class SensorModule(
 
         valueExtractor = SensorUtil.getValueExtractor(sensorType)
 
-        if (param.get(PARAM_SENSOR_THRESHOLD) == PARAM_ENUM_THRESHOLD_GT) {
+        if (param.get(PARAM_SENSOR_THRESHOLD_OPERATOR) == PARAM_ENUM_THRESHOLD_GT) {
             thresholdCheck = fun(event): Boolean {
                 return valueExtractor(event) > threshold
             }
@@ -73,7 +73,6 @@ class SensorModule(
 
     override fun onSensorChanged(event: SensorEvent) {
         if (thresholdCheck(event)) {
-            Log.d(LOG_TAG, "Triggering action ${event.values[0]}")
             action.action()
         }
     }
